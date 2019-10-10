@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLedgerActivityObject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LedgerActivityObject>
+    <LedgerTransactionDate>7/6/2017</LedgerTransactionDate>
+    <Amount>1056.38</Amount>
+    <LedgerTransactionDetails>
+      <LedgerActivityDetailObject>
+        <Amount>1056.38</Amount>
+        <TransactionType>Simple</TransactionType>
+      </LedgerActivityDetailObject>
+    </LedgerTransactionDetails>
+  </LedgerActivityObject>
+  <LedgerActivityObject>
+    <LedgerTransactionDate>2/27/2017</LedgerTransactionDate>
+    <Amount>250.46</Amount>
+    <LedgerTransactionDetails>
+      <LedgerActivityDetailObject>
+        <TransactionType>Simple</TransactionType>
+        <Amount>250.46</Amount>
+      </LedgerActivityDetailObject>
+    </LedgerTransactionDetails>
+  </LedgerActivityObject>
+  <LedgerActivityObject>
+    <LedgerTransactionDate>1/31/2017</LedgerTransactionDate>
+    <Amount>124.28</Amount>
+    <LedgerTransactionDetails>
+      <LedgerActivityDetailObject>
+        <TransactionType>Simple</TransactionType>
+        <Amount>124.28</Amount>
+      </LedgerActivityDetailObject>
+    </LedgerTransactionDetails>
+  </LedgerActivityObject>
+</ArrayOfLedgerActivityObject>
