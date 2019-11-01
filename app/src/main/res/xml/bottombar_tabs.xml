@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_home"
+        icon="@mipmap/home"
+        title="Home"
+        inActiveColor="#FFFFFF"
+        activeColor="#FF0000"
+        barColorWhenSelected="#FFFFFF"
+        badgeBackgroundColor="#FF0000"
+        badgeHidesWhenActive="false"/>
+    <tab
+        id="@+id/tab_search"
+        icon="@mipmap/search"
+        title="Search"
+        inActiveColor="#FFFFFF"
+        activeColor="#FF0000"
+        barColorWhenSelected="#FFFFFF"
+        badgeBackgroundColor="#FF0000"
+        badgeHidesWhenActive="false"/>
+    <tab
+        id="@+id/tab_account"
+        icon="@mipmap/account"
+        title="Account"
+        inActiveColor="#FFFFFF"
+        activeColor="#FF0000"
+        barColorWhenSelected="#FFFFFF"
+        badgeBackgroundColor="#FF0000"
+        badgeHidesWhenActive="false"/>
+</tabs>

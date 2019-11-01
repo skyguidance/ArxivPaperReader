@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:key="clear_cache"
+        android:title="Clear cache"/>
+    <SwitchPreference
+        android:key="notification"
+        android:title="notification"/>
+    <SwitchPreference
+        android:key="picture Pre-load"
+        android:title="Picture Pre-load"/>
+    <Preference
+        android:key="about"
+        android:title="About"/>
+</PreferenceScreen>
