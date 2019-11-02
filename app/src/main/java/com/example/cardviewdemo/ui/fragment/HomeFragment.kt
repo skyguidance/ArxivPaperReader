@@ -14,4 +14,5 @@ class HomeFragment:BaseFragment() {
         tv.text = javaClass.simpleName
         return tv
     }
+
 }
