@@ -39,12 +39,12 @@ abstract class BaseFragment: Fragment(), AnkoLogger {
     }
 
     //data initialize
-    protected fun initData() {
+    open protected fun initData() {
 
     }
 
     //adapter listener
-    protected fun initListener() {
+    open protected fun initListener() {
 
     }
 
