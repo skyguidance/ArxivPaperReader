@@ -8,21 +8,21 @@ class Rome {
     fun Rome(start : Int, keywords : String, cat : String): MutableList<List<MutableList<String>>> {
         //val url = "https://stackoverflow.com/feeds/tag?tagnames=rome"
         val start_num = start.toString()
-        var url = "http://export.arxiv.org/api/query?search_query=all:electron+AND+cat:cond-mat.str-el&start=0&max_results=10"
+        var url = "http://export.arxiv.org/api/query?search_query=all:electron+AND+cat:cond-mat.str-el&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
         var url_new : String
         //&sortBy=lastUpdatedDate&sortOrder=descending
         if(keywords == "" && cat == ""){
-            url = "http://export.arxiv.org/api/query?search_query=all&start=0&max_results=10"
+            url = "http://export.arxiv.org/api/query?search_query=all&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
             url_new = url
         }
         else if(keywords == "")
         {
-            url = "http://export.arxiv.org/api/query?search_query=cat:cond-mat.str-el&start=0&max_results=10"
+            url = "http://export.arxiv.org/api/query?search_query=cat:cond-mat.str-el&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
             url_new = url.replace(Regex("cat:cond-mat.str-el"), "cat:$cat")
         }
         else if(cat == "")
         {
-            url = "http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=10"
+            url = "http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
             url_new = url.replace(Regex("all:electron"), "all:$keywords")
         }
         else
