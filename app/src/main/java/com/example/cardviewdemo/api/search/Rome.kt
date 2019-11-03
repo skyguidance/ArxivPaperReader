@@ -5,15 +5,38 @@ import java.net.URL
 
 class Rome {
 
-    fun Rome(start : Int, cat : String): MutableList<List<MutableList<String>>> {
+    fun Rome(start : Int, keywords : String, cat : String): MutableList<List<MutableList<String>>> {
         //val url = "https://stackoverflow.com/feeds/tag?tagnames=rome"
         val start_num = start.toString()
-        //val url = "http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=10"
-        val url = "http://export.arxiv.org/api/query?search_query=cat:cond-mat.str-el&start=0&max_results=10"
-        val url2 = url.replace(Regex("cat:cond-mat.str-el"), "cat:$cat")
-        val url3 = url2.replace(Regex("start=0"), "start=$start_num")
+        var url = "http://export.arxiv.org/api/query?search_query=all:electron+AND+cat:cond-mat.str-el&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
+        var url_new : String
+        //&sortBy=lastUpdatedDate&sortOrder=descending
+        if(keywords == "" && cat == "")
+        {
+            url = "http://export.arxiv.org/api/query?search_query=all&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
+            url_new = url
+        }
+        else if(keywords == "")
+        {
+            url = "http://export.arxiv.org/api/query?search_query=cat:cond-mat.str-el&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
+            url_new = url.replace(Regex("cat:cond-mat.str-el"), "cat:$cat")
+        }
+        else if(cat == "")
+        {
+            url = "http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
+            url_new = url.replace(Regex("all:electron"), "all:$keywords")
+        }
+        else
+        {
+            val url2 = url.replace(Regex("all:electron"), "all:$keywords")
+            val url3 = url2.replace(Regex("start=0"), "start=$start_num")
+            url_new = url3.replace(Regex("cat:cond-mat.str-el"), "cat:$cat")
+        }
+        //val url2 = url.replace(Regex("all:electron"), "all:$keywords")
+        //val url3 = url2.replace(Regex("start=0"), "start=$start_num")
+        //val url4 = url3.replace(Regex("cat:cond-mat.str-el"), "cat:$cat")
         //val url = "file://Users/ziyueli/IdeaProjects/ROME/a.xml"
-        val feed = SyndFeedInput().build(XmlReader(URL(url3)))
+        val feed = SyndFeedInput().build(XmlReader(URL(url_new)))
         val articles = mutableListOf<List<MutableList<String>>>()
         for(j in 0..9) {
             var a = feed.entries.elementAt(j)
@@ -60,6 +83,7 @@ class Rome {
                 i++
                 list_links.add(links.href)
             }
+
             //val map = mapOf<String, kotlin.collections.HashMap<Int, String>>()
             //val entry = listOf(map_authors, map_categories, uri, title, description, publishedDate, updatedDate, map_links)
             //val entry = listOf(uri, title, list_authors, description, list_categories, publishedDate, updatedDate, list_links)
