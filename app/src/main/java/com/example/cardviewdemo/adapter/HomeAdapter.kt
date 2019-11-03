@@ -6,12 +6,16 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cardviewdemo.model.PaperBean
 import com.example.cardviewdemo.widget.HomeItemView
+import com.example.cardviewdemo.widget.LoadMoreView
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
     private var list = ArrayList<PaperBean>()
 
-    fun updateList(romeResult: MutableList<List<MutableList<String>>>) {
-        this.list.clear()
+    fun updateList(cleanPrevious:Int,romeResult: MutableList<List<MutableList<String>>>) {
+        // if cleanPrevious is set to 1,the previous list will be cleaned.
+        if (cleanPrevious == 1){
+            this.list.clear()
+        }
         for (paper in romeResult) {
             var authorString = String()
             for (author in paper.get(2)) {
@@ -33,16 +37,34 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
         notifyDataSetChanged()
     }
 
+    override fun getItemViewType(position: Int): Int {
+        if(position == list.size){
+            // is the last one
+            return 1
+        }else{
+            return 0
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeHolder {
-        return HomeHolder(HomeItemView(parent?.context))
+        if(viewType  == 1){
+            // is the last card. refreshing
+            return HomeHolder(LoadMoreView(parent?.context))
+        }
+        else{
+            // is the article card
+            return HomeHolder(HomeItemView(parent?.context))
+        }
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return list.size + 1
     }
 
     override fun onBindViewHolder(holder: HomeHolder, position: Int) {
+        if (position == list.size){
+            return
+        }
         val data = list.get(position)
         val itemView = holder?.itemView as HomeItemView
         itemView.setData(data)
