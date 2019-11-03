@@ -10,7 +10,7 @@ class ArxivRequest {
         //val url = "https://stackoverflow.com/feeds/tag?tagnames=rome"
         val start_num = start.toString()
         //val url = "http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=10"
-        val url = "http://export.arxiv.org/api/query?search_query=cat:cond-mat.str-el&start=0&max_results=10"
+        val url = "http://export.arxiv.org/api/query?search_query=cat:cond-mat.str-el&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
         val url2 = url.replace(Regex("cat:cond-mat.str-el"), "cat:$cat")
         val url3 = url2.replace(Regex("start=0"), "start=$start_num")
         //val url = "file://Users/ziyueli/IdeaProjects/ROME/a.xml"

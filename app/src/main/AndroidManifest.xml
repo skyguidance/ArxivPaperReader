@@ -25,5 +25,6 @@
         <activity android:name=".ui.activity.AboutActivity"/>
         <activity android:name=".ui.activity.PaperDetailActivity"/>
         <activity android:name=".ui.activity.PDFActivity"/>
+        <activity android:name=".ui.activity.WebViewActivity"/>
     </application>
 </manifest>
