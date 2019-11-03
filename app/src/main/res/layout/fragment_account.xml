@@ -7,17 +7,18 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/iv_user_avatar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@tools:sample/avatars"
+                android:contentDescription="TODO" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -25,20 +26,20 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/tv_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Username"
+                    android:text="@string/account_username"
                     android:textAlignment="textStart"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/tv_userid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="userid:123456789" />
+                    android:text="@string/account_userid" />
             </LinearLayout>
 
         </TableRow>
@@ -46,36 +47,39 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_favorites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Favorites"
+        android:text="@string/account_favorites"
         android:textAlignment="viewStart"
         android:textStyle="bold"
         android:visibility="visible" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_history"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="History"
-        android:visibility="visible"
-        tools:visibility="visible" />
+        android:text="@string/account_history"
+        android:textAlignment="viewStart"
+        android:textStyle="bold"
+        android:visibility="visible" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings"
-        android:visibility="visible"
-        tools:visibility="visible" />
+        android:text="@string/account_settings"
+        android:textAlignment="viewStart"
+        android:textStyle="bold"
+        android:visibility="visible" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_credit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Credit"
-        android:visibility="visible"
-        tools:visibility="visible" />
+        android:text="@string/account_credit"
+        android:textAlignment="viewStart"
+        android:textStyle="bold"
+        android:visibility="visible" />
 
 </LinearLayout>

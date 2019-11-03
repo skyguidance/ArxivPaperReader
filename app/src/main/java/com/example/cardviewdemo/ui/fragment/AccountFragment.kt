@@ -26,9 +26,6 @@ class AccountFragment : BaseFragment(){
         tv.gravity = Gravity.CENTER
         tv.setTextColor(Color.RED)
         tv.text = javaClass.simpleName
-
-        val tv2 = TextView(context)
-
         return tv
     }
 
