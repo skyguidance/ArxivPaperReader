@@ -1,6 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</LinearLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fadingEdge="vertical"
+    android:scrollbars="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="15sp">
+
+            <TextView
+                android:id="@+id/article_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How students develop software together:A case of study"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/article_authors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/article_title"
+                android:text="James.P.Paul, Harris.S.Johnson, Peter.K.Greenwood"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/article_date_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/article_authors"
+                android:text="Submitted: 10/31/2019"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/article_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/article_date_submit"
+                android:text="ID: 1910.15982v3"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/article_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/article_id"
+                android:text="cs.SE, cs.ML"
+                android:textColor="#5500FF"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <View
+                android:id="@+id/article_line"
+                android:layout_width="450sp"
+                android:layout_height="1dp"
+                android:layout_below="@id/article_type"
+                android:layout_gravity="center"
+                android:layout_marginTop="10sp"
+                android:background="#6F6C6C" />
+
+            <TextView
+                android:id="@+id/article_abstract"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/article_line"
+                android:layout_marginTop="2dp"
+                android:text="Recent years, there is a rising interest on studying how students do their projects in a team."
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>

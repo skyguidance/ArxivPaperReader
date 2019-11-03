@@ -1,5 +1,8 @@
 package com.example.cardviewdemo.model
 
+import android.os.Parcel
+import android.os.Parcelable
+
 /*
 *
 Weblink: result.get(0).get(0).get(0)
@@ -22,4 +25,42 @@ data class PaperBean(
     var UpdateTime: String,
     var PDFLink: String,
     var ArxivID: String
-)
+):Parcelable{
+    constructor(parcel: Parcel) : this(
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString()
+    ) {
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(Weblink)
+        parcel.writeString(Title)
+        parcel.writeString(Author)
+        parcel.writeString(Abstract)
+        parcel.writeString(Catorgary)
+        parcel.writeString(UpdateTime)
+        parcel.writeString(PDFLink)
+        parcel.writeString(ArxivID)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<PaperBean> {
+        override fun createFromParcel(parcel: Parcel): PaperBean {
+            return PaperBean(parcel)
+        }
+
+        override fun newArray(size: Int): Array<PaperBean?> {
+            return arrayOfNulls(size)
+        }
+    }
+
+}

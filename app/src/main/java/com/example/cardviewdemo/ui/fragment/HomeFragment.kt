@@ -9,10 +9,12 @@ import com.example.cardviewdemo.R
 import com.example.cardviewdemo.adapter.HomeAdapter
 import com.example.cardviewdemo.base.BaseFragment
 import com.example.cardviewdemo.presenter.impl.HomePresenterImpl
+import com.example.cardviewdemo.ui.activity.PaperDetailActivity
 import com.example.cardviewdemo.util.ArxivRequest
 import com.example.cardviewdemo.util.ThreadUtil
 import com.example.cardviewdemo.view.HomeView
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.jetbrains.anko.support.v4.startActivity
 
 class HomeFragment : BaseFragment(), HomeView {
     override fun loadSuccess(
@@ -64,7 +66,7 @@ class HomeFragment : BaseFragment(), HomeView {
         })
 
         adapter.setMyListener {
-            println("it=$it")
+            startActivity<PaperDetailActivity>("item" to it)
         }
     }
 

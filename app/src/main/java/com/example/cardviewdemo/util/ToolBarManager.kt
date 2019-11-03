@@ -1,9 +1,13 @@
 package com.example.cardviewdemo.util
 
 import android.content.Intent
+import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import com.example.cardviewdemo.R
+import com.example.cardviewdemo.model.PaperBean
+import com.example.cardviewdemo.ui.activity.PDFActivity
 import com.example.cardviewdemo.ui.activity.SettingActivity
+
 
 
 //Manage all toolbars
@@ -15,8 +19,7 @@ interface ToolBarManager {
         toolbar.setTitle("arXivPaperReader")
         toolbar.inflateMenu(R.menu.main)
         toolbar.setOnMenuItemClickListener {
-            toolbar.context.startActivity(Intent(toolbar.context, SettingActivity::class.java))
-            true
+            gotoSettings()
         }
         //jump to settings second choice
 //        toolbar.setOnMenuItemClickListener(object :Toolbar.OnMenuItemClickListener{
@@ -37,4 +40,56 @@ interface ToolBarManager {
     fun initSettingToolbar(){
         toolbar.setTitle("Settings")
     }
+
+    fun initPDFToolbar(){
+        toolbar.setTitle("arXivPaperReader")
+    }
+
+    //toolbar of Paper Detail Activity
+    fun initPaperDetailToolbar(paperDetailBean:PaperBean){
+        toolbar.setTitle("arXivPaperReader")
+        toolbar.inflateMenu(R.menu.paper_detail)
+        toolbar.setOnMenuItemClickListener(object :Toolbar.OnMenuItemClickListener{
+            override fun onMenuItemClick(item: MenuItem?): Boolean {
+                when (item?.itemId) {
+                    R.id.favourite -> {
+                        addFavourite(paperDetailBean)
+                        return true
+                    }
+                    R.id.pdf -> {
+                        viewAsPDF(paperDetailBean)
+                        return true
+                    }
+                    R.id.renderLatex -> {
+                        viewAsLaTeX(paperDetailBean)
+                        return true
+                    }
+                    R.id.setting -> {
+                        gotoSettings()
+                        return true
+                    }
+                }
+                return true
+            }
+        })
+    }
+
+    fun gotoSettings():Boolean{
+        toolbar.context.startActivity(Intent(toolbar.context, SettingActivity::class.java))
+        return true
+    }
+
+    fun addFavourite(paperDetailBean:PaperBean){
+        println("Fav")
+        toolbar.context.startActivity(Intent(toolbar.context, PDFActivity::class.java))
+    }
+
+    fun viewAsPDF(paperDetailBean:PaperBean){
+        println("PDF")
+    }
+
+    fun viewAsLaTeX(paperDetailBean:PaperBean){
+        println("LaTEX")
+    }
+
 }
