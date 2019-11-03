@@ -11,7 +11,8 @@ class Rome {
         var url = "http://export.arxiv.org/api/query?search_query=all:electron+AND+cat:cond-mat.str-el&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
         var url_new : String
         //&sortBy=lastUpdatedDate&sortOrder=descending
-        if(keywords == "" && cat == ""){
+        if(keywords == "" && cat == "")
+        {
             url = "http://export.arxiv.org/api/query?search_query=all&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
             url_new = url
         }
