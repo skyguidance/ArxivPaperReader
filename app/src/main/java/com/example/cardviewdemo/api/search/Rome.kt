@@ -60,6 +60,7 @@ class Rome {
                 i++
                 list_links.add(links.href)
             }
+
             //val map = mapOf<String, kotlin.collections.HashMap<Int, String>>()
             //val entry = listOf(map_authors, map_categories, uri, title, description, publishedDate, updatedDate, map_links)
             //val entry = listOf(uri, title, list_authors, description, list_categories, publishedDate, updatedDate, list_links)
