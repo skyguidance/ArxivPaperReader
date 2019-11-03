@@ -5,15 +5,16 @@ import java.net.URL
 
 class Rome {
 
-    fun Rome(start : Int, cat : String): MutableList<List<MutableList<String>>> {
+    fun Rome(start : Int, keywords : String, cat : String): MutableList<List<MutableList<String>>> {
         //val url = "https://stackoverflow.com/feeds/tag?tagnames=rome"
         val start_num = start.toString()
-        //val url = "http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=10"
-        val url = "http://export.arxiv.org/api/query?search_query=cat:cond-mat.str-el&start=0&max_results=10"
-        val url2 = url.replace(Regex("cat:cond-mat.str-el"), "cat:$cat")
+        val url = "http://export.arxiv.org/api/query?search_query=ti:electron+AND+cat:cond-mat.str-el&start=0&max_results=10"
+        //&sortBy=lastUpdatedDate&sortOrder=descending
+        val url2 = url.replace(Regex("all:electron"), "all:$keywords")
         val url3 = url2.replace(Regex("start=0"), "start=$start_num")
+        val url4 = url3.replace(Regex("cat:cond-mat.str-el"), "cat:$cat")
         //val url = "file://Users/ziyueli/IdeaProjects/ROME/a.xml"
-        val feed = SyndFeedInput().build(XmlReader(URL(url3)))
+        val feed = SyndFeedInput().build(XmlReader(URL(url4)))
         val articles = mutableListOf<List<MutableList<String>>>()
         for(j in 0..9) {
             var a = feed.entries.elementAt(j)
