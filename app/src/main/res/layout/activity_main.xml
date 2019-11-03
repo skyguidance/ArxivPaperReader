@@ -11,6 +11,7 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
+        class="com.nike0good.fragment_account"
         android:layout_height="0dp"
         android:layout_weight="1"/>
     <com.roughike.bottombar.BottomBar
