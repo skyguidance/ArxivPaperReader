@@ -2,7 +2,6 @@ package com.example.cardviewdemo.ui.fragment
 
 import android.graphics.Color
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cardviewdemo.R
@@ -10,8 +9,6 @@ import com.example.cardviewdemo.adapter.HomeAdapter
 import com.example.cardviewdemo.base.BaseFragment
 import com.example.cardviewdemo.presenter.impl.HomePresenterImpl
 import com.example.cardviewdemo.ui.activity.PaperDetailActivity
-import com.example.cardviewdemo.util.ArxivRequest
-import com.example.cardviewdemo.util.ThreadUtil
 import com.example.cardviewdemo.view.HomeView
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.jetbrains.anko.support.v4.startActivity
@@ -21,6 +18,7 @@ class HomeFragment : BaseFragment(), HomeView {
         cleanPrevious: Int,
         romeResult: MutableList<List<MutableList<String>>>
     ) {
+        //TODO: BUG: If not refreshed homeview, click accountview may break down
         refreshLayout.isRefreshing = false
         adapter.updateList(cleanPrevious, romeResult)
     }
