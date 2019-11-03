@@ -68,6 +68,17 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
         val data = list.get(position)
         val itemView = holder?.itemView as HomeItemView
         itemView.setData(data)
+        itemView.setOnClickListener{
+            // This is on click view
+            listener?.let{
+                it(data)
+            }
+        }
+    }
+
+    var listener:((paperBean:PaperBean) ->Unit)? = null
+    fun setMyListener(listener:(paperBean:PaperBean) ->Unit){
+        this.listener = listener
     }
 
     class HomeHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -8,15 +8,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cardviewdemo.R
 import com.example.cardviewdemo.adapter.HomeAdapter
 import com.example.cardviewdemo.base.BaseFragment
+import com.example.cardviewdemo.presenter.impl.HomePresenterImpl
 import com.example.cardviewdemo.util.ArxivRequest
 import com.example.cardviewdemo.util.ThreadUtil
+import com.example.cardviewdemo.view.HomeView
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment(), HomeView {
+    override fun loadSuccess(
+        cleanPrevious: Int,
+        romeResult: MutableList<List<MutableList<String>>>
+    ) {
+        refreshLayout.isRefreshing = false
+        adapter.updateList(cleanPrevious, romeResult)
+    }
 
 
     val adapter by lazy { HomeAdapter() }
-
+    val presenter by lazy { HomePresenterImpl(this) }
     override fun initView(): View? {
         return View.inflate(context, R.layout.fragment_home, null)
     }
@@ -30,7 +39,7 @@ class HomeFragment : BaseFragment() {
         refreshLayout.setColorSchemeColors(Color.RED)
         refreshLayout.setOnRefreshListener {
             //Listen on refresh
-            loadDatas()
+            presenter.loadDatas()
         }
         // listen to the swap
         recycleView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -46,43 +55,23 @@ class HomeFragment : BaseFragment() {
                         val lastPosition = manager.findLastVisibleItemPosition()
                         if (lastPosition == adapter.itemCount - 1) {
                             // is the last one
-                            loadMore(adapter.itemCount - 1)
+                            presenter.loadMore(adapter.itemCount - 1)
                         }
                     }
                 }
             }
 
         })
+
+        adapter.setMyListener {
+            println("it=$it")
+        }
     }
+
 
     override fun initData() {
-        loadDatas()
+        presenter.loadDatas()
     }
 
-    private fun loadDatas() {
-        Thread({
-            val requestArxiv = ArxivRequest()
-            val result = requestArxiv.Rome(0, "cs.AI")
-            ThreadUtil.runOnMainThread(object : Runnable {
-                override fun run() {
-                    refreshLayout.isRefreshing = false
-                    adapter.updateList(1, result)
-                }
-            })
-        }).start()
-    }
-
-    private fun loadMore(offset: Int) {
-        Thread({
-            val requestArxiv = ArxivRequest()
-            val result = requestArxiv.Rome(offset, "cs.AI")
-            ThreadUtil.runOnMainThread(object : Runnable {
-                override fun run() {
-                    refreshLayout.isRefreshing = false
-                    adapter.updateList(0, result)
-                }
-            })
-        }).start()
-    }
 
 }
