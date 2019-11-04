@@ -1,12 +1,13 @@
 package com.example.cardviewdemo.ui.fragment
 
-import android.graphics.Color
-import android.view.Gravity
+import CreditFragement
+import FavoriteFragement
+import HistoryFragement
+import SettingsFragement
 import android.view.View
-import android.widget.TextView
 import com.example.cardviewdemo.R
 import com.example.cardviewdemo.base.BaseFragment
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_account.view.*
 
 class AccountFragment : BaseFragment(){
     fun newInstance(): AccountFragment {
@@ -15,7 +16,25 @@ class AccountFragment : BaseFragment(){
 
     override fun initView(): View? {
 
-        return inflater.inflate(R.layout.fragment_account, container, false)
+        var view = View.inflate(context, R.layout.fragment_account, null)
+
+        view.btn_favorites.setOnClickListener {
+            fragmentManager?.beginTransaction()?.addToBackStack(null)
+                ?.replace(R.id.container,FavoriteFragement())?.commit()
+        }
+        view.btn_history.setOnClickListener {
+            fragmentManager?.beginTransaction()?.addToBackStack(null)
+                ?.replace(R.id.container,HistoryFragement())?.commit()
+        }
+        view.btn_settings.setOnClickListener {
+            fragmentManager?.beginTransaction()?.addToBackStack(null)
+                ?.replace(R.id.container,SettingsFragement())?.commit()
+        }
+        view.btn_credit.setOnClickListener {
+            fragmentManager?.beginTransaction()?.addToBackStack(null)
+                ?.replace(R.id.container,CreditFragement())?.commit()
+        }
+        return view;
     }
 
 }
