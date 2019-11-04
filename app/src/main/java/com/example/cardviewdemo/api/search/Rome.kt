@@ -1,9 +1,9 @@
-package com.example.androidtry
+package com.example.cardviewdemo.api.search
 import com.rometools.rome.io.SyndFeedInput
 import com.rometools.rome.io.XmlReader
 import java.net.URL
 
-class Rome {
+open class Rome {
 
     fun Rome(start : Int, keywords : String, cat : String): MutableList<List<MutableList<String>>> {
         //val url = "https://stackoverflow.com/feeds/tag?tagnames=rome"

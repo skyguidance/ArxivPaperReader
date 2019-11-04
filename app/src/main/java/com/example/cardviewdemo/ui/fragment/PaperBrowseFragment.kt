@@ -30,6 +30,7 @@ class PaperBrowseFragment : BaseFragment(), PageBrowserView {
         var bundle = getArguments()
         if (bundle != null) {
             SearchWord = bundle.getString("SearchWord")
+            SearchCatorgary = bundle.getString("Category")
         }
         return View.inflate(context, R.layout.fragment_paper_browse, null)
     }

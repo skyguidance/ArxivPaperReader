@@ -23,6 +23,7 @@ class SearchFragment : BaseFragment() {
                 var frag = PaperBrowseFragment()
                 var item = Bundle()
                 item.putString("SearchWord",p0)
+                item.putString("Category","")
                 frag.setArguments(item)
                 fragmentManager?.beginTransaction()?.addToBackStack(null)
                     ?.replace(R.id.container,frag)?.commit()
