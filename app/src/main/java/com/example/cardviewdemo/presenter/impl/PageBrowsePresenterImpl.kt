@@ -1,33 +1,34 @@
 package com.example.cardviewdemo.presenter.impl
 
 import com.example.cardviewdemo.presenter.interf.HomePresenter
+import com.example.cardviewdemo.presenter.interf.PageBrowsePresenter
 import com.example.cardviewdemo.util.ArxivRequest
 import com.example.cardviewdemo.util.ThreadUtil
 import com.example.cardviewdemo.view.HomeView
-import kotlinx.android.synthetic.main.fragment_home.*
+import com.example.cardviewdemo.view.PageBrowserView
 
-class HomePresenterImpl(var homeView: HomeView) : HomePresenter {
+class PageBrowsePresenterImpl(var pageBrowserView: PageBrowserView) : PageBrowsePresenter {
     // Load data and Refresh data
-    override fun loadDatas() {
+    override fun loadDatas(cat: String, searchWord: String) {
         Thread({
             val requestArxiv = ArxivRequest()
-            val result = requestArxiv.Rome(0, "", "")
+            val result = requestArxiv.Rome(0,"", "cs.CV")
             ThreadUtil.runOnMainThread(object : Runnable {
                 override fun run() {
                     // return to homeView
-                    homeView.loadSuccess(1, result)
+                    pageBrowserView.loadSuccess(1, result)
                 }
             })
         }).start()
     }
 
-    override fun loadMore(offset: Int) {
+    override fun loadMore(offset: Int, cat: String, searchWord: String) {
         Thread({
             val requestArxiv = ArxivRequest()
-            val result = requestArxiv.Rome(offset, "", "")
+            val result = requestArxiv.Rome(offset,"", "cs.CV")
             ThreadUtil.runOnMainThread(object : Runnable {
                 override fun run() {
-                    homeView.loadSuccess(0, result)
+                    pageBrowserView.loadSuccess(0, result)
 
                 }
             })
