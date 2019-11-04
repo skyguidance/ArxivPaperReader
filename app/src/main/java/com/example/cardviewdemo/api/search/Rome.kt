@@ -14,17 +14,17 @@ open class Rome {
         if(keywords == "" && cat == "")
         {
             url = "http://export.arxiv.org/api/query?search_query=all&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
-            url_new = url
+            url_new = url.replace(Regex("start=0"), "start=$start_num")
         }
         else if(keywords == "")
         {
             url = "http://export.arxiv.org/api/query?search_query=cat:cond-mat.str-el&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
-            url_new = url.replace(Regex("cat:cond-mat.str-el"), "cat:$cat")
+            url_new = url.replace(Regex("cat:cond-mat.str-el"), "cat:$cat").replace(Regex("start=0"), "start=$start_num")
         }
         else if(cat == "")
         {
             url = "http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=10&sortBy=lastUpdatedDate&sortOrder=descending"
-            url_new = url.replace(Regex("all:electron"), "all:$keywords")
+            url_new = url.replace(Regex("all:electron"), "all:$keywords").replace(Regex("start=0"), "start=$start_num")
         }
         else
         {
