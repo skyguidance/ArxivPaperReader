@@ -10,7 +10,6 @@ class HistoryFragement : BaseFragment() {
     }
 
     override fun initView(): View? {
-
         var view = View.inflate(context, R.layout.fragment_history, null)
         return view;
     }
