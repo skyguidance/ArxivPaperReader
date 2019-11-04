@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30sp"
+        android:layout_marginTop="100sp"
+        android:layout_marginRight="30sp"
+        android:background="#D0D0D0" />
+
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/article_one_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginHorizontal="30sp"
+        android:layout_marginTop="80sp"
+        android:spinnerMode="dropdown" />
+
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/article_two_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginHorizontal="30sp"
+        android:layout_marginTop="80sp"
+        android:spinnerMode="dropdown" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_go_advanced_search"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="80sp"
+        android:background="#FF0000"
+        android:gravity="center"
+        android:text="Advanced Search"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>

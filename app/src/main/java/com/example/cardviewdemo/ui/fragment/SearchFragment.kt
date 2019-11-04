@@ -4,7 +4,6 @@ import android.view.View
 import android.widget.SearchView
 import com.example.cardviewdemo.R
 import com.example.cardviewdemo.base.BaseFragment
-import com.example.cardviewdemo.view.PageBrowserView
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.fragment_search.view.*
 
@@ -13,7 +12,7 @@ class SearchFragment : BaseFragment() {
         var view =  View.inflate(context, R.layout.fragment_search, null)
         view.button_advanced_search.setOnClickListener {
             fragmentManager?.beginTransaction()?.addToBackStack(null)
-                ?.replace(R.id.container,AdvancedSearchFragement())?.commit()
+                ?.replace(R.id.container,AdvancedSearchFragment())?.commit()
         }
         view.search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextChange(p0: String?): Boolean {

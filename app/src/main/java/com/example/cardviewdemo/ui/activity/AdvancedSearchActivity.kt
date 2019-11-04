@@ -5,7 +5,7 @@ import com.example.cardviewdemo.base.BaseActivity
 
 class AdvancedSearchActivity: BaseActivity() {
     override fun getLayoutId(): Int {
-        return R.layout.advanced_search
+        return R.layout.fragment_advanced_search
     }
 
 }
