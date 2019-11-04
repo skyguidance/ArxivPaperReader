@@ -35,6 +35,14 @@ class AdvancedSearchFragment : BaseFragment() {
             "Quantum Physics",
             "Statistics"
         )
+        view.article_two_spinner.setItems(
+            "Astrophysics of Galaxies",
+            "Cosmology and Nongalactic Astrophysics",
+            "Earth and Planetary Astrophysics",
+            "High Energy Astrophysical Phenomena",
+            "Instrumentation and Methods for Astrophysics",
+            "Solar and Stellar Astrophysics"
+        )
         view.article_one_spinner.setOnItemSelectedListener(object :
             MaterialSpinner.OnItemSelectedListener<String> {
             override fun onItemSelected(
