@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CardViewDemo</string>
+    <string name="app_name">arXivPaperReader</string>
 
     <string name="account_username">Username</string>
     <string name="account_userid">userid:</string>
