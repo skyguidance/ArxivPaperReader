@@ -7,7 +7,7 @@ import com.example.cardviewdemo.model.PaperBean
 import com.example.cardviewdemo.widget.HomeItemView
 import com.example.cardviewdemo.widget.LoadMoreView
 
-class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
+class PageBrowseAdapter: RecyclerView.Adapter<PageBrowseAdapter.PageBrowseHolder>() {
     private var list = ArrayList<PaperBean>()
 
     fun updateList(cleanPrevious:Int,romeResult: MutableList<List<MutableList<String>>>) {
@@ -45,14 +45,14 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PageBrowseAdapter.PageBrowseHolder {
         if(viewType  == 1){
             // is the last card. refreshing
-            return HomeHolder(LoadMoreView(parent?.context))
+            return PageBrowseAdapter.PageBrowseHolder(LoadMoreView(parent?.context))
         }
         else{
             // is the article card
-            return HomeHolder(HomeItemView(parent?.context))
+            return PageBrowseAdapter.PageBrowseHolder(HomeItemView(parent?.context))
         }
     }
 
@@ -60,7 +60,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
         return list.size + 1
     }
 
-    override fun onBindViewHolder(holder: HomeHolder, position: Int) {
+    override fun onBindViewHolder(holder: PageBrowseAdapter.PageBrowseHolder, position: Int) {
         if (position == list.size){
             return
         }
@@ -75,12 +75,12 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
         }
     }
 
-    var listener:((paperBean:PaperBean) ->Unit)? = null
-    fun setMyListener(listener:(paperBean:PaperBean) ->Unit){
+    var listener:((paperBean: PaperBean) ->Unit)? = null
+    fun setMyListener(listener:(paperBean: PaperBean) ->Unit){
         this.listener = listener
     }
 
-    class HomeHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class PageBrowseHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
 }
