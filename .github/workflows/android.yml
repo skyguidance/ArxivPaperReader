@@ -15,5 +15,11 @@ jobs:
         java-version: 1.8
     - name: Build with Gradle
       run: |
+        chmod +x ./gradlew
         ./gradlew clean
-        ./gradlew build
+        ./gradlew assembleDebug
+    - name: Upload Compiled APK
+      uses: actions/upload-artifact@v1
+      with:
+          name: arXivPaperReader.apk
+          path: ./app/build/outputs/apk/debug/app-debug.apk
