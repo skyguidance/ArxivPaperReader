@@ -6,6 +6,7 @@ import java.net.URL
 open class Rome {
 
     fun Rome(start : Int, keywords : String, cat : String): MutableList<List<MutableList<String>>> {
+        println("Rome DEBUG:"+start.toString()+"Rome DEBUG:"+keywords+"Rome DEBUG:"+cat)
         //val url = "https://stackoverflow.com/feeds/tag?tagnames=rome"
         val start_num = start.toString()
         //val url = "http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=10"

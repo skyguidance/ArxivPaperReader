@@ -12,7 +12,7 @@ class PageBrowsePresenterImpl(var pageBrowserView: PageBrowserView) : PageBrowse
     override fun loadDatas(cat: String, searchWord: String) {
         Thread({
             val requestArxiv = ArxivRequest()
-            val result = requestArxiv.Rome(0,"", "cs.CV")
+            val result = requestArxiv.Rome(0,searchWord, cat)
             ThreadUtil.runOnMainThread(object : Runnable {
                 override fun run() {
                     // return to homeView
@@ -25,7 +25,7 @@ class PageBrowsePresenterImpl(var pageBrowserView: PageBrowserView) : PageBrowse
     override fun loadMore(offset: Int, cat: String, searchWord: String) {
         Thread({
             val requestArxiv = ArxivRequest()
-            val result = requestArxiv.Rome(offset,"", "cs.CV")
+            val result = requestArxiv.Rome(offset,searchWord, cat)
             ThreadUtil.runOnMainThread(object : Runnable {
                 override fun run() {
                     pageBrowserView.loadSuccess(0, result)
