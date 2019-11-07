@@ -5,9 +5,9 @@ import java.util.Properties
 /**
  * Program to list databases in MySQL using Kotlin
  */
-object MySQLDatabaseExampleKotlin {
-    fun mysql_function( user:String, password:String){
-
+object mysql_add {
+    fun mysql_add( user:String, password:String){
+        
     }
     internal var conn: Connection? = null
 //    internal var username = "username" // provide the username
