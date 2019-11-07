@@ -15,5 +15,4 @@ class FavoriteFragement : BaseFragment() {
         return view;
     }
 
-
 }
