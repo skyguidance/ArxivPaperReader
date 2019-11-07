@@ -22,7 +22,7 @@ class PaperBrowseFragment : BaseFragment(), PageBrowserView {
         romeResult: MutableList<List<MutableList<String>>>
     ) {
         //TODO: BUG: If not refreshed homeview, click accountview may break down
-        refreshLayout.isRefreshing = false
+        refreshLayout?.isRefreshing = false
         adapter.updateList(cleanPrevious, romeResult)
     }
 
@@ -31,6 +31,8 @@ class PaperBrowseFragment : BaseFragment(), PageBrowserView {
         if (bundle != null) {
             SearchWord = bundle.getString("SearchWord")
             SearchCatorgary = bundle.getString("Category")
+            println("SearchWord:"+SearchWord)
+            println("SearchCatorgary:"+SearchCatorgary)
         }
         return View.inflate(context, R.layout.fragment_paper_browse, null)
     }

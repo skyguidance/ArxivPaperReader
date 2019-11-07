@@ -755,20 +755,22 @@ class AdvancedSearchFragment : BaseFragment() {
 
         })
 
-        view.search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                if (query != null) {
-                    SearchWord = query
-                }
-                return false
-            }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return false;
-            }
-
-        })
+//        view.search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                if (query != null) {
+//                    SearchWord = query
+//                }
+//                return false
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                return false;
+//            }
+//
+//        })
         view.btn_go_advanced_search.setOnClickListener {
+            SearchWord = view.search_view.text.toString()
             println("BTN Onclick:" + Category)
             println("BTN Onclick:" + SearchWord)
             var frag = PaperBrowseFragment()

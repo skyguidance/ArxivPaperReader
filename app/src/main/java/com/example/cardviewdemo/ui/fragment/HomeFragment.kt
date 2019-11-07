@@ -19,7 +19,7 @@ class HomeFragment : BaseFragment(), HomeView {
         romeResult: MutableList<List<MutableList<String>>>
     ) {
         //TODO: BUG: If not refreshed homeview, click accountview may break down
-        refreshLayout.isRefreshing = false
+        refreshLayout?.isRefreshing = false
         adapter.updateList(cleanPrevious, romeResult)
     }
 
