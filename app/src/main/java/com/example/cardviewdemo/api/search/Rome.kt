@@ -1,4 +1,5 @@
 package com.example.cardviewdemo.api.search
+import com.rometools.rome.feed.synd.SyndFeed
 import com.rometools.rome.io.SyndFeedInput
 import com.rometools.rome.io.XmlReader
 import java.net.URL
@@ -41,7 +42,12 @@ open class Rome {
             url_new = url3.replace(Regex("cat:cond-mat.str-el"), "cat:$cat")
         }
         //val url = "file://Users/ziyueli/IdeaProjects/ROME/a.xml"
-        val feed = SyndFeedInput().build(XmlReader(URL(url_new)))
+        lateinit var feed: SyndFeed
+        try {
+            feed = SyndFeedInput().build(XmlReader(URL(url_new)))
+        }catch (e:Exception){
+            return mutableListOf<List<MutableList<String>>>()
+        }
         val articles = mutableListOf<List<MutableList<String>>>()
         for(j in 0..9) {
             var a = feed.entries.elementAt(j)
