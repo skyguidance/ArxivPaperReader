@@ -1,5 +1,6 @@
 package com.example.cardviewdemo.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,19 @@ import org.jetbrains.anko.support.v4.toast
 
 //All fragments' base class
 abstract class BaseFragment: Fragment(), AnkoLogger {
+
+    var UID: String = ""
+
+    fun getThisUser(){
+        var pref = this.activity?.getSharedPreferences("CurrentUserInfo", Context.MODE_PRIVATE)
+        if (pref != null) {
+            UID = pref.getString("UID", "")
+        }else{
+            UID = ""
+        }
+        println("DEBUG:GETUID:"+UID)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
@@ -26,6 +40,7 @@ abstract class BaseFragment: Fragment(), AnkoLogger {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        getThisUser()
         return initView()
     }
 

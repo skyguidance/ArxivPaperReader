@@ -1,4 +1,5 @@
 package com.example.cardviewdemo.ui.fragment
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
@@ -8,6 +9,7 @@ import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.fragment_search.view.*
 
 class SearchFragment : BaseFragment() {
+
     override fun initView(): View? {
         var view =  View.inflate(context, R.layout.fragment_search, null)
         view.button_advanced_search.setOnClickListener {

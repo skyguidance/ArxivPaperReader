@@ -1,5 +1,6 @@
 package com.example.cardviewdemo.ui.fragment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.preference.Preference
@@ -9,7 +10,17 @@ import com.example.cardviewdemo.ui.activity.AboutActivity
 
 
 class SettingFragment : PreferenceFragmentCompat() {
+    fun setThisUser(currentUID: String) {
+        var pref = this.activity?.getSharedPreferences("CurrentUserInfo", Context.MODE_PRIVATE)
+        var editor = pref?.edit()
+        if (editor != null) {
+            editor.putString("UID", currentUID)
+            editor.commit()
+        }
+    }
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setThisUser("12345")
         setPreferencesFromResource(R.xml.setting, rootKey)
     }
 

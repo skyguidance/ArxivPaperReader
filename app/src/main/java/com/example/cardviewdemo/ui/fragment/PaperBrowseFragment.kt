@@ -1,5 +1,6 @@
 package com.example.cardviewdemo.ui.fragment
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -26,7 +27,9 @@ class PaperBrowseFragment : BaseFragment(), PageBrowserView {
         adapter.updateList(cleanPrevious, romeResult)
     }
 
+
     override fun initView(): View? {
+        getThisUser()
         var bundle = getArguments()
         if (bundle != null) {
             SearchWord = bundle.getString("SearchWord")
