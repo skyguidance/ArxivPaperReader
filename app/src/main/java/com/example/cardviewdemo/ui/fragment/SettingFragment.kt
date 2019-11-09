@@ -15,7 +15,7 @@ class SettingFragment : PreferenceFragmentCompat() {
         var editor = pref?.edit()
         if (editor != null) {
             editor.putString("UID", currentUID)
-            editor.commit()
+            editor.apply()
         }
     }
 
