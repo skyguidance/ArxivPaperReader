@@ -18,8 +18,14 @@ jobs:
         chmod +x ./gradlew
         ./gradlew clean
         ./gradlew assembleDebug
+        ./gradlew lint
     - name: Upload Compiled APK
       uses: actions/upload-artifact@v1
       with:
-          name: arXivPaperReader.apk
+          name: arXivPaperReader
           path: ./app/build/outputs/apk/debug/app-debug.apk
+    - name: Upload Code-Check Report
+      uses: actions/upload-artifact@v1
+      with:
+        name: LintReport
+        path: ./app/build/reports/lint-results.html
