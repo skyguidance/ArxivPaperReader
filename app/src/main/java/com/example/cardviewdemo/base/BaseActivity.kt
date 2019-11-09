@@ -12,7 +12,7 @@ import org.jetbrains.anko.toast
 abstract class BaseActivity: AppCompatActivity(), AnkoLogger {
 
     var UID: String = ""
-    fun getThisUser(){
+    fun getThisUser():String{
         var pref = this.getSharedPreferences("CurrentUserInfo", Context.MODE_PRIVATE)
         if (pref != null) {
             UID = pref.getString("UID", "")
@@ -20,6 +20,7 @@ abstract class BaseActivity: AppCompatActivity(), AnkoLogger {
             UID = ""
         }
         println("DEBUG:GETUID:"+UID)
+        return UID
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

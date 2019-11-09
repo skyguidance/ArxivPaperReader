@@ -19,7 +19,7 @@ class PaperDetailActivity : BaseActivity(),ToolBarManager {
 
     override fun initData() {
         val paperDetailBean = intent.getParcelableExtra<PaperBean>("item")
-        initPaperDetailToolbar(paperDetailBean)
+        initPaperDetailToolbar(paperDetailBean,UID)
         setData(paperDetailBean)
         //println("itemBean=$paperDetailBean")
     }

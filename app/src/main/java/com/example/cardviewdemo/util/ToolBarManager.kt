@@ -1,5 +1,6 @@
 package com.example.cardviewdemo.util
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
@@ -48,14 +49,15 @@ interface ToolBarManager {
     }
 
     //toolbar of Paper Detail Activity
-    fun initPaperDetailToolbar(paperDetailBean: PaperBean) {
+    fun initPaperDetailToolbar(paperDetailBean: PaperBean,UID:String) {
+        println("DEBUG:initPaperDetailToolbar:getUID:"+UID)
         toolbar.setTitle("arXivPaperReader")
         toolbar.inflateMenu(R.menu.paper_detail)
         toolbar.setOnMenuItemClickListener(object : Toolbar.OnMenuItemClickListener {
             override fun onMenuItemClick(item: MenuItem?): Boolean {
                 when (item?.itemId) {
                     R.id.favourite -> {
-                        addFavourite(paperDetailBean)
+                        addFavourite(paperDetailBean,UID)
                         return true
                     }
                     R.id.pdf -> {
@@ -81,7 +83,7 @@ interface ToolBarManager {
         return true
     }
 
-    fun addFavourite(paperDetailBean: PaperBean) {
+    fun addFavourite(paperDetailBean: PaperBean,UID: String) {
 
     }
 

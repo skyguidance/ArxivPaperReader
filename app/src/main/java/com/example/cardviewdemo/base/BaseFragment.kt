@@ -15,7 +15,7 @@ abstract class BaseFragment: Fragment(), AnkoLogger {
 
     var UID: String = ""
 
-    fun getThisUser(){
+    fun getThisUser():String{
         var pref = this.activity?.getSharedPreferences("CurrentUserInfo", Context.MODE_PRIVATE)
         if (pref != null) {
             UID = pref.getString("UID", "")
@@ -23,6 +23,7 @@ abstract class BaseFragment: Fragment(), AnkoLogger {
             UID = ""
         }
         println("DEBUG:GETUID:"+UID)
+        return UID
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
