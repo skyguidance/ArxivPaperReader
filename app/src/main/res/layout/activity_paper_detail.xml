@@ -73,7 +73,7 @@
                 android:layout_marginTop="10sp"
                 android:background="#6F6C6C" />
 
-            <TextView
+            <com.daquexian.flexiblerichtextview.FlexibleRichTextView
                 android:id="@+id/article_abstract"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

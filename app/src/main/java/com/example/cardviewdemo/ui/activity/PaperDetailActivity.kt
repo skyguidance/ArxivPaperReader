@@ -1,14 +1,17 @@
 package com.example.cardviewdemo.ui.activity
 
+import android.content.Context
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import com.example.cardviewdemo.R
 import com.example.cardviewdemo.base.BaseActivity
 import com.example.cardviewdemo.model.PaperBean
 import com.example.cardviewdemo.util.ToolBarManager
+import io.github.kbiakov.codeview.classifier.CodeProcessor
 import kotlinx.android.synthetic.main.activity_paper_detail.*
 import kotlinx.android.synthetic.main.item_home.view.*
 import org.jetbrains.anko.find
+import org.scilab.forge.jlatexmath.core.AjLatexMath
 
 class PaperDetailActivity : BaseActivity(),ToolBarManager {
     override val toolbar: Toolbar by lazy { find<Toolbar>(R.id.toolbar) }
@@ -20,6 +23,8 @@ class PaperDetailActivity : BaseActivity(),ToolBarManager {
     override fun initData() {
         val paperDetailBean = intent.getParcelableExtra<PaperBean>("item")
         initPaperDetailToolbar(paperDetailBean,UID)
+        AjLatexMath.init(this)
+        CodeProcessor.init(this)
         setData(paperDetailBean)
         //println("itemBean=$paperDetailBean")
     }
