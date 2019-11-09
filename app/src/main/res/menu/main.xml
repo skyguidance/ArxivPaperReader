@@ -4,6 +4,6 @@
 <item
     android:id="@+id/setting"
     android:title="Settings"
-    android:icon="@mipmap/setting"
+    android:icon="@mipmap/arxiv_settings"
     app:showAsAction="always"/>
 </menu>

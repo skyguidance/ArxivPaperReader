@@ -2,7 +2,7 @@
 <tabs>
     <tab
         id="@+id/tab_home"
-        icon="@mipmap/home"
+        icon="@mipmap/arxiv_home"
         title="Home"
         inActiveColor="#FFFFFF"
         activeColor="#FF0000"
@@ -11,7 +11,7 @@
         badgeHidesWhenActive="false"/>
     <tab
         id="@+id/tab_search"
-        icon="@mipmap/search"
+        icon="@mipmap/arxiv_search"
         title="Search"
         inActiveColor="#FFFFFF"
         activeColor="#FF0000"
@@ -20,7 +20,7 @@
         badgeHidesWhenActive="false"/>
     <tab
         id="@+id/tab_account"
-        icon="@mipmap/account"
+        icon="@mipmap/arxiv_account"
         title="Account"
         inActiveColor="#FFFFFF"
         activeColor="#FF0000"
