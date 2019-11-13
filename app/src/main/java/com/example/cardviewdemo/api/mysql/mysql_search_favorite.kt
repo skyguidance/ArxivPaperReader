@@ -5,11 +5,12 @@ import java.util.Properties
 /**
  * Program to list databases in MySQL using Kotlin
  */
-object mysql_addusr {
-    fun mysql_add( user : String, password : String): Int? {
-        getConnection()
-        return executeMySQLQuery(user, password)
+object mysql_search_favorite {
+    fun mysql_search_favorite( articles: MutableList<List<MutableList<String>>>): MutableList<List<MutableList<String>>>{
+        //getConnection()
+        return articles
     }
+
     internal var conn: Connection? = null
     //    internal var username = "username" // provide the username
 //    internal var password = "password" // provide the corresponding password
