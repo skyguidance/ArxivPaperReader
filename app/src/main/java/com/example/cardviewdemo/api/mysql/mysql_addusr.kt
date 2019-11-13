@@ -1,16 +1,17 @@
-package com.example.cardviewdemo.api.search
+package com.example.mysql_try
 
 import java.sql.*
 import java.util.Properties
 /**
  * Program to list databases in MySQL using Kotlin
  */
-object mysql_add {
-    fun mysql_add( user:String, password:String){
-        
+object mysql_addusr {
+    fun mysql_add( user : String, password : String): Int? {
+        getConnection()
+        return executeMySQLQuery(user, password)
     }
     internal var conn: Connection? = null
-//    internal var username = "username" // provide the username
+    //    internal var username = "username" // provide the username
 //    internal var password = "password" // provide the corresponding password
     internal var username = "root" // provide the username
     //internal var password = "4j{NjN(]dpwwuY9X" // provide the corresponding password
@@ -19,30 +20,47 @@ object mysql_add {
         // make a connection to MySQL Server
         getConnection()
         // execute the query via connection object
-        executeMySQLQuery()
+        executeMySQLQuery("abc","kkkkk")
     }
-    fun executeMySQLQuery() {
+    fun executeMySQLQuery(usr: String, pwd : String): Int? {
+//        var usr : String = ""
+//        var pwd : String = ""
+//        usr = use
         var stmt: Statement? = null
-        var resultset: ResultSet? = null
+        //var resultset: ResultSet? = null
+        var resultset: Int? = null
         try {
             stmt = conn!!.createStatement()
-            resultset = stmt!!.executeQuery("SHOW DATABASES;")
-            if (stmt.execute("SHOW DATABASES;")) {
-                resultset = stmt.resultSet
-            }
-            while (resultset!!.next()) {
-                println(resultset.getString("Database"))
-            }
+            var sql:String = "use apr_users;"
+            var sql2:String = "INSERT INTO apr_users.user (username, password) VALUES ( '$usr', '$pwd');"
+//            resultset = stmt!!.executeQuery("use apr_users;"+
+//                    //"INSERT INTO user (username, password) VALUES (\"$usr\",\"$pwd\");"
+//                    "INSERT INTO user (username, password) VALUES ( '$usr', '$pwd');"
+//            )
+            //resultset = stmt!!.executeQuery(sql2)
+            resultset = stmt!!.executeUpdate(sql2)
+            println(resultset)
+            return resultset
+            //if (stmt.execute("SHOW DATABASES;")) {
+//            if (stmt.execute(sql2)) {
+//                //resultset = stmt.resultSet
+//                resultset2 = stmt.updateCount
+//                println(resultset2)
+//            }
+//            while (resultset2) {
+//                //println(resultset.getString("Database"))
+//                println(resultset2)
+//            }
         } catch (ex: SQLException) {
             // handle any errors
             ex.printStackTrace()
         } finally {
             // release resources
             if (resultset != null) {
-                try {
-                    resultset.close()
-                } catch (sqlEx: SQLException) {
-                }
+//                try {
+//                    resultset.close()
+//                } catch (sqlEx: SQLException) {
+//                }
                 resultset = null
             }
             if (stmt != null) {
@@ -60,6 +78,7 @@ object mysql_add {
                 conn = null
             }
         }
+        return 0
     }
     /**
      * This method makes a connection to MySQL Server
@@ -82,7 +101,7 @@ object mysql_add {
                         ":" + "3306" + "/" +
                         //"","root", "soE{Hq96")
                         "","root", "4j{NjN(]dpwwuY9X")
-                //connectionProps)
+            //connectionProps)
         } catch (ex: SQLException) {
             // handle any errors
             ex.printStackTrace()
