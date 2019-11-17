@@ -1,8 +1,6 @@
 package com.example.cardviewdemo.ui.fragment
 
-import android.content.Context
 import android.graphics.Color
-import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -84,6 +82,7 @@ class PaperBrowseFragment : BaseFragment(), PageBrowserView {
 
 
     override fun initData() {
+
         presenter.loadDatas(SearchCatorgary, SearchWord)
     }
 

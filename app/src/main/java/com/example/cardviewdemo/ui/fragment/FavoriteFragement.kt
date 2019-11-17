@@ -1,18 +1,82 @@
 
+import android.graphics.Color
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.cardviewdemo.R
+import com.example.cardviewdemo.adapter.FavoriteAdapter
 import com.example.cardviewdemo.base.BaseFragment
+import com.example.cardviewdemo.presenter.impl.FavoritePresenterImpl
+import com.example.cardviewdemo.ui.activity.PaperDetailActivity
+import com.example.cardviewdemo.view.FavoriteView
+import kotlinx.android.synthetic.main.fragment_favorite.*
+import kotlinx.android.synthetic.main.fragment_paper_browse.*
+import org.jetbrains.anko.support.v4.startActivity
 
 
-class FavoriteFragement : BaseFragment() {
+class FavoriteFragement : BaseFragment(),FavoriteView {
     fun newInstance(): FavoriteFragement {
         return FavoriteFragement()
     }
 
-    override fun initView(): View? {
 
-        var view = View.inflate(context, R.layout.fragment_favorite, null)
-        return view;
+    override fun loadSuccess(
+        cleanPrevious: Int,
+        romeResult: MutableList<List<MutableList<String>>>
+    ) {
+        refreshLayout?.isRefreshing = false
+        adapter.updateList(cleanPrevious, romeResult)
+    }
+
+
+    override fun initView(): View? {
+        getThisUser()
+        var bundle = getArguments()
+        return View.inflate(context, R.layout.fragment_favorite, null)
+    }
+
+
+    val adapter by lazy { FavoriteAdapter() }
+    val presenter by lazy { FavoritePresenterImpl(this) }
+
+    override fun initListener() {
+        rv_favorite_list.layoutManager = LinearLayoutManager(context)
+        rv_favorite_list.adapter = adapter
+        refreshLayout.setColorSchemeColors(Color.RED)
+        refreshLayout.setOnRefreshListener {
+            //Listen on refresh
+            presenter.loadDatas()
+        }
+        // listen to the swap
+        rv_favorite_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(rv_favorite_list: RecyclerView, dx: Int, dy: Int) {
+
+            }
+
+            override fun onScrollStateChanged(rv_favorite_list: RecyclerView, newState: Int) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    val layoutManager = rv_favorite_list.layoutManager
+                    if (layoutManager is LinearLayoutManager) {
+                        val manager: LinearLayoutManager = layoutManager
+                        val lastPosition = manager.findLastVisibleItemPosition()
+                        if (lastPosition == adapter.itemCount - 1) {
+                            // is the last one
+                            presenter.loadMore(adapter.itemCount - 1)
+                        }
+                    }
+                }
+            }
+
+        })
+
+        adapter.setMyListener {
+            startActivity<PaperDetailActivity>("item" to it)
+        }
+    }
+
+
+    override fun initData() {
+        presenter.loadDatas()
     }
 
 }

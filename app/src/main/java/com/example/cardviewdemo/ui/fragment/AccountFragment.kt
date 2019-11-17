@@ -27,8 +27,13 @@ class AccountFragment : BaseFragment(){
                 ?.replace(R.id.container,HistoryFragement())?.commit()
         }
         view.btn_settings.setOnClickListener {
-            fragmentManager?.beginTransaction()?.addToBackStack(null)
-                ?.replace(R.id.container,SettingsFragement())?.commit()
+            if (isRegistered()) {
+                fragmentManager?.beginTransaction()?.addToBackStack(null)
+                    ?.replace(R.id.container,SettingsFragement())?.commit()
+            }else {
+                fragmentManager?.beginTransaction()?.addToBackStack(null)
+                    ?.replace(R.id.container,SettingsFragement())?.commit()
+            }
         }
         view.btn_credit.setOnClickListener {
             fragmentManager?.beginTransaction()?.addToBackStack(null)

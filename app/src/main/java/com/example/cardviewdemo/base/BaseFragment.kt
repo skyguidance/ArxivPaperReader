@@ -25,6 +25,10 @@ abstract class BaseFragment: Fragment(), AnkoLogger {
         println("DEBUG:GETUID:"+UID)
         return UID
     }
+    fun isRegistered():Boolean{
+        var pref = this.activity?.getSharedPreferences("CurrentUserInfo", Context.MODE_PRIVATE)
+        return (pref != null)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
