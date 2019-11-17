@@ -10,7 +10,7 @@ import com.example.cardviewdemo.model.PaperBean
 import com.example.cardviewdemo.ui.activity.PDFActivity
 import com.example.cardviewdemo.ui.activity.SettingActivity
 import com.example.cardviewdemo.ui.activity.WebViewActivity
-
+import com.example.cardviewdemo.api.mysql.mysql_add_favorite
 
 //Manage all toolbars
 interface ToolBarManager {
@@ -84,6 +84,12 @@ interface ToolBarManager {
     }
 
     fun addFavourite(paperDetailBean: PaperBean,UID: String) {
+        val i = 1
+        println("DEBUG:ADD_FAV"+i)
+        Thread({
+            mysql_add_favorite.mysql_add_favorite(1,paperDetailBean.Weblink)
+
+        }).start()
 
     }
 
