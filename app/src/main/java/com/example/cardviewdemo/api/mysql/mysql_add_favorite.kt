@@ -1,4 +1,4 @@
-package com.example.mysql_try
+package com.example.cardviewdemo.api.mysql
 
 import java.sql.*
 
