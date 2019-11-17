@@ -4,17 +4,17 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cardviewdemo.R
-import com.example.cardviewdemo.adapter.PageBrowseAdapter
+import com.example.cardviewdemo.adapter.FavoriteAdapter
 import com.example.cardviewdemo.base.BaseFragment
-import com.example.cardviewdemo.presenter.impl.PageBrowsePresenterImpl
+import com.example.cardviewdemo.presenter.impl.FavoritePresenterImpl
 import com.example.cardviewdemo.ui.activity.PaperDetailActivity
-import com.example.cardviewdemo.view.PageBrowserView
+import com.example.cardviewdemo.view.FavoriteView
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import kotlinx.android.synthetic.main.fragment_paper_browse.*
 import org.jetbrains.anko.support.v4.startActivity
 
 
-class FavoriteFragement : BaseFragment(), PageBrowserView {
+class FavoriteFragement : BaseFragment(),FavoriteView {
     fun newInstance(): FavoriteFragement {
         return FavoriteFragement()
     }
@@ -36,8 +36,8 @@ class FavoriteFragement : BaseFragment(), PageBrowserView {
     }
 
 
-    val adapter by lazy { PageBrowseAdapter() }
-    val presenter by lazy { PageBrowsePresenterImpl(this) }
+    val adapter by lazy { FavoriteAdapter() }
+    val presenter by lazy { FavoritePresenterImpl(this) }
 
     override fun initListener() {
         rv_favorite_list.layoutManager = LinearLayoutManager(context)
@@ -45,7 +45,7 @@ class FavoriteFragement : BaseFragment(), PageBrowserView {
         refreshLayout.setColorSchemeColors(Color.RED)
         refreshLayout.setOnRefreshListener {
             //Listen on refresh
-            presenter.loadDatas(UID)
+            presenter.loadDatas()
         }
         // listen to the swap
         rv_favorite_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -61,7 +61,7 @@ class FavoriteFragement : BaseFragment(), PageBrowserView {
                         val lastPosition = manager.findLastVisibleItemPosition()
                         if (lastPosition == adapter.itemCount - 1) {
                             // is the last one
-                            presenter.loadMore(adapter.itemCount - 1, UID)
+                            presenter.loadMore(adapter.itemCount - 1)
                         }
                     }
                 }
@@ -76,7 +76,7 @@ class FavoriteFragement : BaseFragment(), PageBrowserView {
 
 
     override fun initData() {
-        presenter.loadDatas(UID)
+        presenter.loadDatas()
     }
 
 }
