@@ -20,7 +20,7 @@ class Rome2 {
         val list_authors = mutableListOf<String>()
         var i: Int = 1
         for (authors in a.authors) {
-            println("authors:" + authors.name)
+            //println("authors:" + authors.name)
             map_authors.put(i, authors.name)
             i++
             list_authors.add(authors.name)
@@ -29,7 +29,7 @@ class Rome2 {
         val list_categories = mutableListOf<String>()
         i = 1
         for (categories in a.categories) {
-            println("categories:" + categories.name)
+            //println("categories:" + categories.name)
             map_categories.put(i, categories.name)
             list_categories.add(categories.name)
         }
@@ -69,7 +69,7 @@ class Rome2 {
         //articles.add(entry)
         //println(articles)
         //println(articles.size)
-        val b = entry.get(2).get(2)
+        //val b = entry.get(2).get(2)
 
         //println(articles.get(2).get(2))
         return entry
