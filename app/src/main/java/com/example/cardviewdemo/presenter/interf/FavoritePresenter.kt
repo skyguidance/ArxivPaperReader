@@ -1,6 +1,6 @@
 package com.example.cardviewdemo.presenter.interf
 
 interface FavoritePresenter {
-    fun loadDatas()
-    abstract fun loadMore(offset: Int)
+    fun loadDatas(UID: Int)
+    abstract fun loadMore(offset: Int, UID: Int)
 }

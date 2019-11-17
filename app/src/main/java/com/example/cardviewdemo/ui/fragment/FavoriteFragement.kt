@@ -10,7 +10,6 @@ import com.example.cardviewdemo.presenter.impl.FavoritePresenterImpl
 import com.example.cardviewdemo.ui.activity.PaperDetailActivity
 import com.example.cardviewdemo.view.FavoriteView
 import kotlinx.android.synthetic.main.fragment_favorite.*
-import kotlinx.android.synthetic.main.fragment_paper_browse.*
 import org.jetbrains.anko.support.v4.startActivity
 
 
@@ -24,7 +23,7 @@ class FavoriteFragement : BaseFragment(),FavoriteView {
         cleanPrevious: Int,
         romeResult: MutableList<List<MutableList<String>>>
     ) {
-        refreshLayout?.isRefreshing = false
+        rl_favorite_list?.isRefreshing = false
         adapter.updateList(cleanPrevious, romeResult)
     }
 
@@ -42,10 +41,10 @@ class FavoriteFragement : BaseFragment(),FavoriteView {
     override fun initListener() {
         rv_favorite_list.layoutManager = LinearLayoutManager(context)
         rv_favorite_list.adapter = adapter
-        refreshLayout.setColorSchemeColors(Color.RED)
-        refreshLayout.setOnRefreshListener {
+        rl_favorite_list.setColorSchemeColors(Color.RED)
+        rl_favorite_list.setOnRefreshListener {
             //Listen on refresh
-            presenter.loadDatas()
+            presenter.loadDatas(UID.toInt())
         }
         // listen to the swap
         rv_favorite_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -61,7 +60,7 @@ class FavoriteFragement : BaseFragment(),FavoriteView {
                         val lastPosition = manager.findLastVisibleItemPosition()
                         if (lastPosition == adapter.itemCount - 1) {
                             // is the last one
-                            presenter.loadMore(adapter.itemCount - 1)
+                            presenter.loadMore(adapter.itemCount - 1, UID.toInt())
                         }
                     }
                 }
@@ -76,7 +75,7 @@ class FavoriteFragement : BaseFragment(),FavoriteView {
 
 
     override fun initData() {
-        presenter.loadDatas()
+        presenter.loadDatas(UID.toInt())
     }
 
 }
