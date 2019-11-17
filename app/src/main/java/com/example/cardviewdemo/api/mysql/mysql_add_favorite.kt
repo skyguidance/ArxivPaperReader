@@ -33,6 +33,7 @@ object mysql_add_favorite{
 
     fun insertRow_userfavoriterelations(connection: Connection? = conn, schema : String = "apr_users", table : String = "userfavoriterelations", UID : Int = 1, Fid : Int) {
         val sql = "INSERT INTO $schema.$table (UID, Fid) VALUES ('$UID', '$Fid')"
+        connection!!.autoCommit = false
         with(connection!!) {
             createStatement().execute(sql)
             commit()
@@ -53,6 +54,7 @@ object mysql_add_favorite{
 
     fun mysql_add_favorite(UID:Int, arxivID: String){
         var Fid : Int
+        println("DEBUG:mysql_add_favorite:"+UID+"......"+arxivID)
         getConnection()
         try{
             insertRow_favorite(conn,"apr_users", "favorite", arxivID)
