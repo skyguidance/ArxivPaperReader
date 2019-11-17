@@ -2,7 +2,7 @@ package com.example.cardviewdemo.api.mysql
 
 import java.sql.*
 
-object mysql_test{
+object mysql_add_favorite{
 
     internal var conn: Connection? = null
 
