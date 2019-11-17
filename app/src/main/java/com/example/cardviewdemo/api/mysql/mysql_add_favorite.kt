@@ -54,6 +54,11 @@ object mysql_test{
     fun mysql_add_favorite(UID:Int, arxivID: String){
         var Fid : Int
         getConnection()
+        try{
+            insertRow_favorite(conn,"apr_users", "favorite", arxivID)
+        }
+        catch(sqlEx: SQLException){
+        }
         Fid = queryRows_favorite(conn,"apr_users","favorite", arxivID)
         insertRow_userfavoriterelations(UID = 1, Fid = Fid)
     }
