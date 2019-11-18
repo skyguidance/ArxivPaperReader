@@ -51,15 +51,6 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/btn_settings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/account_login"
-        android:textAlignment="viewStart"
-        android:textStyle="bold"
-        android:visibility="invisible" />
-
-    <Button
         android:id="@+id/btn_favorites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
