@@ -12,7 +12,6 @@ import com.example.cardviewdemo.view.FavoriteView
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import org.jetbrains.anko.support.v4.startActivity
 
-
 class FavoriteFragement : BaseFragment(),FavoriteView {
     fun newInstance(): FavoriteFragement {
         return FavoriteFragement()
@@ -72,7 +71,6 @@ class FavoriteFragement : BaseFragment(),FavoriteView {
             startActivity<PaperDetailActivity>("item" to it)
         }
     }
-
 
     override fun initData() {
         presenter.loadDatas(UID.toInt())
