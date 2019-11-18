@@ -73,6 +73,7 @@ class HistoryFragement : BaseFragment(),HistoryView {
     }
 
     override fun initData() {
+        UID ="1"
         presenter.loadDatas(UID.toInt())
     }
 
