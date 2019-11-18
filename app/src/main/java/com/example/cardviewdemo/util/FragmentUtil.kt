@@ -12,7 +12,6 @@ class FragmentUtil private constructor(){
     val homeFragment by lazy { HomeFragment() }
     val searchFragment by lazy { SearchFragment() }
     val accountFragment by lazy { AccountFragment() }
-
     companion object {
         val fragmentUtil by lazy { FragmentUtil() }
     }
