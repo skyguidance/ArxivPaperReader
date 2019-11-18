@@ -1,6 +1,8 @@
 package com.example.cardviewdemo.api.mysql
 
-import java.sql.*
+import java.sql.Connection
+import java.sql.DriverManager
+import java.sql.SQLException
 
 object mysql_add_favorite{
 
@@ -39,6 +41,7 @@ object mysql_add_favorite{
                 createStatement().execute(sql)
             }
             catch(sqlEx: SQLException){
+                print("wrong")
             }
             commit()
         }
@@ -64,6 +67,7 @@ object mysql_add_favorite{
             insertRow_favorite(conn,"apr_users", "favorite", arxivID)
         }
         catch(sqlEx: SQLException){
+            print("wrong")
         }
         Fid = queryRows_favorite(conn,"apr_users","favorite", arxivID)
         insertRow_userfavoriterelations(UID = 1, Fid = Fid)

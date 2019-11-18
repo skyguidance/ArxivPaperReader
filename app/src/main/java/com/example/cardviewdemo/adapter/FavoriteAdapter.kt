@@ -12,9 +12,14 @@ class FavoriteAdapter: RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>() {
 
     fun updateList(cleanPrevious:Int,romeResult: MutableList<List<MutableList<String>>>) {
         // if cleanPrevious is set to 1,the previous list will be cleaned.
+
         if (cleanPrevious == 1){
             this.list.clear()
         }
+        if (romeResult.size == 0 ) {
+            this.list.clear()
+
+        } else
         for (paper in romeResult) {
             var authorString = String()
             for (author in paper.get(2)) {
