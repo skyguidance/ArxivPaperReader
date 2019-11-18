@@ -30,6 +30,9 @@ class LoginFragment : BaseFragment() {
             fragmentManager?.beginTransaction()?.addToBackStack(null)
                 ?.replace(R.id.container, RegisterFragment())?.commit()
         }
+        view.btn_login_login.setOnClickListener {
+            login()
+        }
         return view;
 
 
@@ -61,6 +64,8 @@ class LoginFragment : BaseFragment() {
                         println("DEBUG:doUserLogin:CurrentUser:" + result)
                         myToast("Login Success." + result)
                         setThisUser(result.toString())
+                        fragmentManager?.beginTransaction()?.addToBackStack(null)
+                            ?.replace(R.id.container,AccountFragmentLogin())?.commit()
                     }
                 }
             }).start()

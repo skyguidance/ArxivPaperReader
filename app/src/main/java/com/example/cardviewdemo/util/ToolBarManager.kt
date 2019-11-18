@@ -60,10 +60,10 @@ interface ToolBarManager {
                         addFavourite(paperDetailBean,UID)
                         return true
                     }
-                    R.id.favourited -> {
-                        //delete favourite
-                        return true
-                    }
+//                    R.id.favourited -> {
+//                        //delete favourite
+//                        return true
+//                    }
                     R.id.pdf -> {
                         viewAsPDF(paperDetailBean)
                         return true

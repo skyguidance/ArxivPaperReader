@@ -15,6 +15,10 @@ class AccountFragment : BaseFragment(){
     }
 
     override fun initView(): View? {
+        if ((getThisUser().equals("")==false) and (getThisUser().equals("-1")==false)){
+            fragmentManager?.beginTransaction()?.addToBackStack(null)
+                ?.replace(R.id.container,AccountFragmentLogin())?.commit()
+        }
 
         var view = View.inflate(context, R.layout.fragment_account, null)
 
