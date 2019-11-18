@@ -8,11 +8,13 @@ class Rome2 {
     fun Rome2(arxivid : String): List<MutableList<String>> {
         //val url = "https://stackoverflow.com/feeds/tag?tagnames=rome"
         //val start_num = start.toString()
-        val url = "http://arxiv.org/abs/cond-mat/9902050v1"
+        val url = arxivid
         val url2 = url.replace(Regex("http://arxiv.org/abs/"), "http://export.arxiv.org/api/query?id_list=")
         //val url3 = url2.replace(Regex("start=0"), "start=$start_num")
         //val url4 = url3.replace(Regex("cat:cond-mat.str-el"), "cat:$cat")
         //val url = "file://Users/ziyueli/IdeaProjects/ROME/a.xml"
+        println("DEBUG:Rome2:"+url)
+        println("DEBUG:Rome2:"+url2)
         val feed = SyndFeedInput().build(XmlReader(URL(url2)))
         //val articles = mutableListOf<List<MutableList<String>>>()
         var a = feed.entries.elementAt(0)

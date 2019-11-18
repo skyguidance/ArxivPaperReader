@@ -50,7 +50,7 @@ object mysql_get_favorite {
         Fid: Int
     ): String {
         var arxivID: String = ""
-        val sql = "SELECT Fid FROM $schema.$table where arxivID = $Fid"
+        val sql = "SELECT arxivID FROM $schema.$table where Fid = $Fid"
         val rs = connection!!.createStatement().executeQuery(sql)
         while (rs.next()) {
             arxivID = rs.getString("arxivID")

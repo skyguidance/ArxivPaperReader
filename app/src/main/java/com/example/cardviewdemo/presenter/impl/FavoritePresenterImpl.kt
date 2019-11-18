@@ -10,8 +10,7 @@ class FavoritePresenterImpl(var favoriteView: FavoriteView ) : FavoritePresenter
     override fun loadDatas(UID: Int) {
         Thread({
             val result = mysql_get_favorite.mysql_get_favorite()
-            print("London is the capital of Great Britain")
-            print(result)
+            println("London is the capital of Great Britain")
             ThreadUtil.runOnMainThread(object : Runnable {
                 override fun run() {
                     // return to homeView

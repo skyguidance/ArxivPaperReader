@@ -11,7 +11,7 @@ import org.jetbrains.anko.toast
 //All activities' base class
 abstract class BaseActivity: AppCompatActivity(), AnkoLogger {
 
-    var UID: String = ""
+    var UID: String = "1"
     fun getThisUser():String{
         var pref = this.getSharedPreferences("CurrentUserInfo", Context.MODE_PRIVATE)
         if (pref != null) {

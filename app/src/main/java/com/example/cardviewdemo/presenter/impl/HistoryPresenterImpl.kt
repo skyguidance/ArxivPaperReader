@@ -16,7 +16,6 @@ class HistoryPresenterImpl(var historyView: HistoryView ) : HistoryPresenter {
             ThreadUtil.runOnMainThread(object : Runnable {
                 override fun run() {
                     // return to homeView
-
                     historyView.loadSuccess(1, result)
                 }
             })

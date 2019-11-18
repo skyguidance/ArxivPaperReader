@@ -13,7 +13,7 @@ import org.jetbrains.anko.support.v4.toast
 //All fragments' base class
 abstract class BaseFragment: Fragment(), AnkoLogger {
 
-    var UID: String = ""
+    var UID: String = "1"
 
     fun getThisUser():String{
         var pref = this.activity?.getSharedPreferences("CurrentUserInfo", Context.MODE_PRIVATE)
