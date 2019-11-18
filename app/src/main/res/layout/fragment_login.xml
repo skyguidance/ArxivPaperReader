@@ -11,7 +11,7 @@ android:orientation="vertical">
     <TextView
         android:id="@+id/title_Login"
         android:text="arXiv"
-        android:textSize="80sp"
+        android:textSize="100sp"
         android:textColor="#FFFFFF"
         android:gravity="center"
         android:layout_width="match_parent"
