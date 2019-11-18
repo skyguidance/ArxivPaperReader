@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">arXivPaperReader</string>
 
-    <string name="account_username">arXivUser</string>
-    <string name="account_userid">UID:000001</string>
+    <string name="account_username">Guest</string>
+    <string name="account_userid">UID:000000</string>
     <string name="account_favorites">Favorites</string>
     <string name="account_history">History</string>
-    <string name="account_settings">Settings</string>
+    <string name="account_login">Login</string>
     <string name="account_credit">Credit</string>
     <string name="credit_text">This app is created by Hang Wu, Qi Tianyi, Ziyue Li and Gaozhi Liu.</string>
     <string name="settings_change_password">change password</string>
