@@ -9,6 +9,7 @@ import io.github.kbiakov.codeview.classifier.CodeProcessor
 import kotlinx.android.synthetic.main.activity_paper_detail.*
 import org.jetbrains.anko.find
 import org.scilab.forge.jlatexmath.core.AjLatexMath
+import com.example.cardviewdemo.api.mysql.mysql_add_history
 
 class PaperDetailActivity : BaseActivity(),ToolBarManager {
     override val toolbar: Toolbar by lazy { find<Toolbar>(R.id.toolbar) }
@@ -23,6 +24,11 @@ class PaperDetailActivity : BaseActivity(),ToolBarManager {
         AjLatexMath.init(this)
         CodeProcessor.init(this)
         setData(paperDetailBean)
+        UID = "1"
+        Thread({
+            mysql_add_history.mysql_add_history(UID.toInt(),paperDetailBean.Weblink)
+        }).start()
+
         //println("itemBean=$paperDetailBean")
     }
 
