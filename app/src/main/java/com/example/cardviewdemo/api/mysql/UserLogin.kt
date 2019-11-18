@@ -16,22 +16,33 @@ object UserLogin {
         table: String,
         username: String,
         password: String
-    ): Boolean {
+    ): Int {
         val sql=
             "SELECT username from $schema.$table where username = '$username'and password ='$password'"
-        val rs=connection!!.createStatement().executeQuery(sql)
+        var rs=connection!!.createStatement().executeQuery(sql)
         var getusername=""
         if (rs.next()) {
             getusername=rs.getString("username")
         }
-        return getusername.equals(username)
+        if (getusername.equals(username)) {
+            rs=connection!!.createStatement()
+                .executeQuery("SELECT uid from $schema.$table where username = '$username'and password ='$password'")
+            if (rs.next()) {
+                return rs.getInt("UID")
+            } else {
+                return -1
+            }
+        } else {
+            return -1
+        }
+
     }
 
-    fun doUserRegister(username: String, password: String) {
+    fun doUserLogin(username: String, password: String): Int {
         println("DEBUG:doUserLogin:" + username + "......" + password)
         UserLogin.getConnection()
         try {
-            UserLogin.checkRow_User(
+            return UserLogin.checkRow_User(
                 UserLogin.conn,
                 "apr_users",
                 "user",
@@ -40,6 +51,7 @@ object UserLogin {
             )
         } catch (sqlEx: SQLException) {
             print(sqlEx)
+            return -1
         }
     }
 
