@@ -7,10 +7,6 @@ import java.util.Properties
  * Program to list databases in MySQL using Kotlin
  */
 object mysql_add_history {
-    fun mysql_add_history(articles: MutableList<List<MutableList<String>>>): Int {
-        //getConnection()
-        return 1
-    }
 
     internal var conn: Connection? = null
     //    internal var username = "username" // provide the username
