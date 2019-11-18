@@ -29,7 +29,7 @@ class AccountFragment : BaseFragment(){
         view.btn_settings.setOnClickListener {
             if (isRegistered()) {
                 fragmentManager?.beginTransaction()?.addToBackStack(null)
-                    ?.replace(R.id.container,SettingsFragement())?.commit()
+                    ?.replace(R.id.container,LoginFragment())?.commit()
             }else {
                 fragmentManager?.beginTransaction()?.addToBackStack(null)
                     ?.replace(R.id.container,SettingsFragement())?.commit()
