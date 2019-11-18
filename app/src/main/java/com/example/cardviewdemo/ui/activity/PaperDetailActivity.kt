@@ -1,7 +1,5 @@
 package com.example.cardviewdemo.ui.activity
 
-import android.content.Context
-import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import com.example.cardviewdemo.R
 import com.example.cardviewdemo.base.BaseActivity
@@ -9,7 +7,6 @@ import com.example.cardviewdemo.model.PaperBean
 import com.example.cardviewdemo.util.ToolBarManager
 import io.github.kbiakov.codeview.classifier.CodeProcessor
 import kotlinx.android.synthetic.main.activity_paper_detail.*
-import kotlinx.android.synthetic.main.item_home.view.*
 import org.jetbrains.anko.find
 import org.scilab.forge.jlatexmath.core.AjLatexMath
 
@@ -38,6 +35,39 @@ class PaperDetailActivity : BaseActivity(),ToolBarManager {
         article_abstract.setText(data.Abstract.replace("\n",""))
     }
 
-
+    //Icon change
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        getMenuInflater().inflate(R.menu.paper_detail,menu);
+//        return true;
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+//        when (item?.itemId) {
+//            R.id.favourite -> {
+//                return true
+//            }
+//            R.id.favourited -> {
+//                return true
+//            }
+//            R.id.pdf -> {
+//                return true
+//            }
+//            R.id.renderLatex -> {
+//                return true
+//            }
+//            R.id.setting -> {
+//                gotoSettings()
+//                return true
+//            }
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
+//
+//    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+//        invalidateOptionsMenu();
+//        menu.findItem(R.id.favourite).isVisible=false;
+//        menu.findItem(R.id.favourited).isVisible=true;
+//        return super.onPrepareOptionsMenu(menu);
+//    }
 
 }

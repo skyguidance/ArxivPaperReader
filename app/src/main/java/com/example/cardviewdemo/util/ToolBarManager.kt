@@ -1,16 +1,16 @@
 package com.example.cardviewdemo.util
 
-import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import com.example.cardviewdemo.R
+import com.example.cardviewdemo.api.mysql.mysql_add_favorite
 import com.example.cardviewdemo.model.PaperBean
 import com.example.cardviewdemo.ui.activity.PDFActivity
 import com.example.cardviewdemo.ui.activity.SettingActivity
 import com.example.cardviewdemo.ui.activity.WebViewActivity
-import com.example.cardviewdemo.api.mysql.mysql_add_favorite
+
+
 
 //Manage all toolbars
 interface ToolBarManager {
@@ -60,6 +60,10 @@ interface ToolBarManager {
                         addFavourite(paperDetailBean,UID)
                         return true
                     }
+                    R.id.favourited -> {
+                        //delete favourite
+                        return true
+                    }
                     R.id.pdf -> {
                         viewAsPDF(paperDetailBean)
                         return true
@@ -106,5 +110,8 @@ interface ToolBarManager {
         intent.setClass(toolbar.context, WebViewActivity::class.java)
         toolbar.context.startActivity(intent)
     }
+
+
+
 
 }

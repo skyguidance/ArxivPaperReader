@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:layout_marginHorizontal="30sp"
-        android:layout_marginTop="80sp"
+        android:layout_marginTop="40sp"
         android:spinnerMode="dropdown" />
 
     <com.jaredrummler.materialspinner.MaterialSpinner
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:layout_marginHorizontal="30sp"
-        android:layout_marginTop="80sp"
+        android:layout_marginTop="40sp"
         android:spinnerMode="dropdown" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -34,7 +34,7 @@
         android:layout_width="152dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="80sp"
+        android:layout_marginTop="60sp"
         android:background="#FF0000"
         android:gravity="center"
         android:text="Advanced Search"
