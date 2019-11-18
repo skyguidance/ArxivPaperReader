@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">arXivPaperReader</string>
 
-    <string name="account_username">Username</string>
-    <string name="account_userid">userid:</string>
+    <string name="account_username">Name:</string>
+    <string name="account_userid">UID:000001</string>
     <string name="account_favorites">Favorites</string>
     <string name="account_history">History</string>
     <string name="account_settings">Settings</string>

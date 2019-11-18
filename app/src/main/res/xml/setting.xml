@@ -2,14 +2,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <Preference
         android:key="clear_cache"
-        android:title="Clear cache"/>
+        android:title="Clear Cache"/>
     <SwitchPreference
         android:key="notification"
-        android:title="notification"/>
+        android:title="Notification"/>
     <SwitchPreference
-        android:key="picture Pre-load"
-        android:title="Picture Pre-load"/>
-    <Preference
-        android:key="about"
-        android:title="About"/>
+        android:key="dark Mode"
+        android:title="Dark Mode"/>
 </PreferenceScreen>

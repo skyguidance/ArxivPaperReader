@@ -17,6 +17,7 @@
                 android:id="@+id/iv_user_avatar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher_foreground"
                 tools:srcCompat="@tools:sample/avatars"
                 android:contentDescription="TODO" />
 
@@ -26,20 +27,23 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_username"
+                    android:id="@+id/tv_userid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/account_username"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="20sp"
+                    android:text="@string/account_userid"
                     android:textAlignment="textStart"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/tv_userid"
+                    android:id="@+id/tv_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="7sp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="@string/account_userid" />
+                    android:text="@string/account_username" />
             </LinearLayout>
 
         </TableRow>
