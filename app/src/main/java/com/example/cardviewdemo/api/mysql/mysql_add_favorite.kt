@@ -35,7 +35,11 @@ object mysql_add_favorite{
         val sql = "INSERT INTO $schema.$table (UID, Fid) VALUES ('$UID', '$Fid')"
         connection!!.autoCommit = false
         with(connection!!) {
-            createStatement().execute(sql)
+            try{
+                createStatement().execute(sql)
+            }
+            catch(sqlEx: SQLException){
+            }
             commit()
         }
     }
