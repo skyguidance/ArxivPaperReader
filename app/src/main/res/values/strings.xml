@@ -13,5 +13,6 @@
     <string name="settings_change_password">change password</string>
     <string name="settings_change_username">change username</string>
     <string name="settings_exit_login">exit login</string>
+    <string name="account_logout">LOGOUT</string>
 
-    </resources>
+</resources>

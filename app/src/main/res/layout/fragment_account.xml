@@ -60,24 +60,6 @@
         android:visibility="visible" />
 
     <Button
-        android:id="@+id/btn_favorites"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/account_favorites"
-        android:textAlignment="viewStart"
-        android:textStyle="bold"
-        android:visibility="invisible" />
-
-    <Button
-        android:id="@+id/btn_history"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/account_history"
-        android:textAlignment="viewStart"
-        android:textStyle="bold"
-        android:visibility="invisible" />
-
-    <Button
         android:id="@+id/btn_credit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
