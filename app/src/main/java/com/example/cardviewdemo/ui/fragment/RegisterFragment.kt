@@ -2,7 +2,7 @@ package com.example.cardviewdemo.ui.fragment
 
 import android.view.View
 import com.example.cardviewdemo.R
-import com.example.cardviewdemo.api.mysql.mysql_add_usr
+import com.example.cardviewdemo.api.mysql.UserRegister
 import com.example.cardviewdemo.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_register.view.*
 
@@ -22,9 +22,7 @@ class RegisterFragment : BaseFragment(){
                 Thread({
                     var s1 = view.et_register_username!!.text.toString()
                     var s2 = view.et_register_password!!.text.toString()
-
-                    mysql_add_usr.mysql_add_usr(s1,s2)
-
+                    UserRegister.doUserRegister(s1,s2)
                 }).start()
                 fragmentManager?.beginTransaction()?.addToBackStack(null)
                     ?.replace(R.id.container,LoginFragment())?.commit()
