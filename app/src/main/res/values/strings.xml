@@ -9,7 +9,7 @@
     <string name="account_history">History</string>
     <string name="account_login">Login</string>
     <string name="account_credit">Credit</string>
-    <string name="credit_text">This app is created by Hang Wu, Qi Tianyi, Ziyue Li and Gaozhi Liu.</string>
+    <string name="credit_text">This app is created by Hang Wu,Tianyi Qi, Ziyue Li and Gaozhi Liu.</string>
     <string name="settings_change_password">change password</string>
     <string name="settings_change_username">change username</string>
     <string name="settings_exit_login">exit login</string>
