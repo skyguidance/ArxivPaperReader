@@ -1,7 +1,11 @@
 
 import android.view.View
-import com.example.cardviewdemo.R
 import com.example.cardviewdemo.base.BaseFragment
+import mehdi.sakout.aboutpage.AboutPage
+import mehdi.sakout.aboutpage.Element
+
+
+
 
 
 class CreditFragement : BaseFragment() {
@@ -10,8 +14,13 @@ class CreditFragement : BaseFragment() {
     }
 
     override fun initView(): View? {
-
-        var view = View.inflate(context, R.layout.fragment_credit, null)
+        var string: String = context?.getResources()!!.getString(
+            com.example.cardviewdemo.R.string.credit_text);
+        var view = AboutPage(context)
+            .isRTL(true)
+            .setDescription(string)
+            .addItem(Element().setTitle("Version 1.0"))
+            .create()
         return view;
     }
 
