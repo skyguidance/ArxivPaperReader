@@ -9,7 +9,7 @@ class FavoritePresenterImpl(var favoriteView: FavoriteView ) : FavoritePresenter
     // Load data and Refresh data
     override fun loadDatas(UID: Int) {
         Thread({
-            val result = mysql_get_favorite.mysql_get_favorite()
+            val result = mysql_get_favorite.mysql_get_favorite(UID)
             println("London is the capital of Great Britain")
             ThreadUtil.runOnMainThread(object : Runnable {
                 override fun run() {
@@ -23,8 +23,7 @@ class FavoritePresenterImpl(var favoriteView: FavoriteView ) : FavoritePresenter
 
     override fun loadMore(offset: Int, UID: Int) {
         Thread({
-            val result = mysql_get_favorite.mysql_get_favorite()
-
+            val result = mysql_get_favorite.mysql_get_favorite(UID)
             ThreadUtil.runOnMainThread(object : Runnable {
                 override fun run() {
                     favoriteView.loadSuccess(0, result)

@@ -91,8 +91,7 @@ interface ToolBarManager {
         val i = 1
         println("DEBUG:ADD_FAV"+i)
         Thread({
-            mysql_add_favorite.mysql_add_favorite(1,paperDetailBean.Weblink)
-
+            mysql_add_favorite.mysql_add_favorite(UID.toInt(),paperDetailBean.Weblink)
         }).start()
 
     }

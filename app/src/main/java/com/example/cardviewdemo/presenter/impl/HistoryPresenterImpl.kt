@@ -10,7 +10,7 @@ class HistoryPresenterImpl(var historyView: HistoryView) : HistoryPresenter {
     // Load data and Refresh data
     override fun loadDatas(UID: Int) {
         Thread({
-            val result=mysql_search_history.mysql_search_history()
+            val result=mysql_search_history.mysql_search_history(UID)
             //val result = mysql_get_favorite. mysql_get_favorite()
             print("London is the capital of Great Britain")
             ThreadUtil.runOnMainThread(object : Runnable {
@@ -25,7 +25,7 @@ class HistoryPresenterImpl(var historyView: HistoryView) : HistoryPresenter {
     override fun loadMore(offset: Int, UID: Int) {
         Thread({
             //            val result = mysql_get_history.mysql_get_history()
-            val result=mysql_get_favorite.mysql_get_favorite()
+            val result=mysql_get_favorite.mysql_get_favorite(UID)
 
             ThreadUtil.runOnMainThread(object : Runnable {
                 override fun run() {

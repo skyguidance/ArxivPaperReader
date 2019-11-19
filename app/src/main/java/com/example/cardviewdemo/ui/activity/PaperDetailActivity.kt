@@ -24,7 +24,6 @@ class PaperDetailActivity : BaseActivity(),ToolBarManager {
         AjLatexMath.init(this)
         CodeProcessor.init(this)
         setData(paperDetailBean)
-        UID = "1"
         Thread({
             mysql_add_history.mysql_add_history(UID.toInt(),paperDetailBean.Weblink)
         }).start()

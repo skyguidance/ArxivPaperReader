@@ -47,7 +47,7 @@ object mysql_search_history {
         return list_arxivid
     }
 
-    fun mysql_search_history(UID: Int=1): MutableList<List<MutableList<String>>> {
+    fun mysql_search_history(UID: Int): MutableList<List<MutableList<String>>> {
         val articles=mutableListOf<List<MutableList<String>>>()
         mysql_search_history.getConnection()
         mysql_search_history.queryRows_userhistory(UID=UID).forEach {
