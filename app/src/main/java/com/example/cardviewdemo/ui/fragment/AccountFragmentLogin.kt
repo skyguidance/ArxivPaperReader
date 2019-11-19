@@ -53,7 +53,7 @@ class AccountFragmentLogin : BaseFragment() {
             logout()
         }
         myToast(UID)
-        view.tv_userid.setText(UID)
+        view.tv_userid.setText("UID: " + UID)
         Thread({
             var thisUserName=getUserName.doGetUserName(UID)
             runOnUiThread {
