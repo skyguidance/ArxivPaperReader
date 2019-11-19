@@ -10,7 +10,10 @@ import com.example.cardviewdemo.R
 import com.example.cardviewdemo.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_account.view.*
 import com.example.cardviewdemo.api.mysql.getUserName
+import kotlinx.android.synthetic.main.fragment_account.view.btn_credit
+import kotlinx.android.synthetic.main.fragment_account.view.tv_userid
 import kotlinx.android.synthetic.main.fragment_account_login.*
+import kotlinx.android.synthetic.main.fragment_account_login.view.*
 import org.jetbrains.anko.support.v4.runOnUiThread
 
 class AccountFragmentLogin : BaseFragment() {
@@ -34,20 +37,23 @@ class AccountFragmentLogin : BaseFragment() {
             fragmentManager?.beginTransaction()?.addToBackStack(null)
                 ?.replace(R.id.container, HistoryFragement())?.commit()
         }
-        view.btn_settings.setOnClickListener {
-            if (isRegistered()) {
-                fragmentManager?.beginTransaction()?.addToBackStack(null)
-                    ?.replace(R.id.container, LoginFragment())?.commit()
-            } else {
-                fragmentManager?.beginTransaction()?.addToBackStack(null)
-                    ?.replace(R.id.container, SettingsFragement())?.commit()
-            }
-        }
+//        view.btn_settings.setOnClickListener {
+//            if (isRegistered()) {
+//                fragmentManager?.beginTransaction()?.addToBackStack(null)
+//                    ?.replace(R.id.container, LoginFragment())?.commit()
+//            } else {
+//                fragmentManager?.beginTransaction()?.addToBackStack(null)
+//                    ?.replace(R.id.container, SettingsFragement())?.commit()
+//            }
+//        }
         view.btn_credit.setOnClickListener {
             fragmentManager?.beginTransaction()?.addToBackStack(null)
                 ?.replace(R.id.container, CreditFragement())?.commit()
         }
 
+        view.btn_Logout.setOnClickListener {
+            logout()
+        }
         view.tv_userid.setText(UID)
         Thread({
             var thisUserName=getUserName.doGetUserName(UID)
@@ -69,6 +75,8 @@ class AccountFragmentLogin : BaseFragment() {
 
     private fun logout() {
         setThisUser("")
+        fragmentManager?.beginTransaction()?.addToBackStack(null)
+            ?.replace(R.id.container, AccountFragment())?.commit()
     }
 
 }

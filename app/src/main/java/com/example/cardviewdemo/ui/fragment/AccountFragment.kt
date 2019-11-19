@@ -8,6 +8,7 @@ import android.view.View
 import com.example.cardviewdemo.R
 import com.example.cardviewdemo.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_account.view.*
+import kotlinx.android.synthetic.main.fragment_account.view.btn_credit
 
 class AccountFragment : BaseFragment(){
     fun newInstance(): AccountFragment {
@@ -22,15 +23,7 @@ class AccountFragment : BaseFragment(){
 
         var view = View.inflate(context, R.layout.fragment_account, null)
 
-        view.btn_favorites.setOnClickListener {
-            fragmentManager?.beginTransaction()?.addToBackStack(null)
-                ?.replace(R.id.container,FavoriteFragement())?.commit()
-        }
-        view.btn_history.setOnClickListener {
-            fragmentManager?.beginTransaction()?.addToBackStack(null)
-                ?.replace(R.id.container,HistoryFragement())?.commit()
-        }
-        view.btn_settings.setOnClickListener {
+        view.btn_login.setOnClickListener {
             if (isRegistered()) {
                 fragmentManager?.beginTransaction()?.addToBackStack(null)
                     ?.replace(R.id.container,LoginFragment())?.commit()
