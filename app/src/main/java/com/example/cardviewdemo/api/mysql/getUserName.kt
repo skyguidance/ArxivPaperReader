@@ -16,6 +16,9 @@ object getUserName {
         table: String,
         UID: String
     ): String {
+        if (connection==null){
+            getConnection()
+        }
         val sql=
             "SELECT username from $schema.$table where uid = '$UID'"
         var rs=connection!!.createStatement().executeQuery(sql)
@@ -35,7 +38,7 @@ object getUserName {
         getUserName.getConnection()
         try {
             return getUserName.checkRow_User(
-                UserLogin.conn,
+                getUserName.conn,
                 "apr_users",
                 "user",
                 thisUID

@@ -20,7 +20,6 @@ class SettingFragment : PreferenceFragmentCompat() {
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setThisUser("12345")
         setPreferencesFromResource(R.xml.setting, rootKey)
     }
 
