@@ -4,13 +4,13 @@ import SettingsFragement
 import android.content.Context
 import android.view.View
 import com.example.cardviewdemo.R
+import com.example.cardviewdemo.api.mysql.UserLogin
 import com.example.cardviewdemo.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
+import org.jetbrains.anko.support.v4.runOnUiThread
 import org.json.JSONException
 import java.io.IOException
-import com.example.cardviewdemo.api.mysql.UserLogin
-import org.jetbrains.anko.support.v4.runOnUiThread
 
 class LoginFragment : BaseFragment() {
 
@@ -57,12 +57,12 @@ class LoginFragment : BaseFragment() {
                 val result=UserLogin.doUserLogin(username, password)
                 if (result == -1) {
                     runOnUiThread {
-                        myToast("Login Failed.")
+                        myToast("Username or password mismatch.")
                     }
                 } else {
                     runOnUiThread {
                         println("DEBUG:doUserLogin:CurrentUser:" + result)
-                        myToast("Login Success." + result)
+                       // myToast("Login Success." + result)
                         setThisUser(result.toString())
                         fragmentManager?.beginTransaction()?.addToBackStack(null)
                             ?.replace(R.id.container,AccountFragmentLogin())?.commit()

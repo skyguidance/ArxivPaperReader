@@ -55,8 +55,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/account_favorites"
-        android:textAlignment="viewStart"
+        android:textAlignment="gravity"
+        android:textColor="#FFFFFF"
+        android:background="#FF0000"
         android:textStyle="bold"
+        android:layout_marginHorizontal="10sp"
         android:visibility="visible" />
 
     <Button
@@ -64,8 +67,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/account_history"
-        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
+        android:background="#FF0000"
+        android:layout_marginTop="10sp"
+        android:textAlignment="gravity"
         android:textStyle="bold"
+        android:layout_marginHorizontal="10sp"
         android:visibility="visible" />
 
     <Button
@@ -73,8 +80,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/account_credit"
-        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
+        android:background="#FF0000"
+        android:layout_marginTop="10sp"
+        android:textAlignment="gravity"
         android:textStyle="bold"
+        android:layout_marginHorizontal="10sp"
         android:visibility="visible" />
 
     <Button
@@ -82,8 +93,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/account_logout"
-        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
+        android:background="#FF0000"
+        android:layout_marginTop="10sp"
+        android:textAlignment="gravity"
         android:textStyle="bold"
+        android:layout_marginHorizontal="10sp"
         android:visibility="visible" />
 
 </LinearLayout>

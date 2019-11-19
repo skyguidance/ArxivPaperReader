@@ -28,9 +28,9 @@ object mysql_get_favorite {
         connection: Connection? = conn,
         schema: String = "apr_users",
         table: String = "userfavoriterelations",
-        UID: Int = 1
+        UID: Int
     ): MutableList<Int> {
-        var Fid: Int = 0
+        var Fid: Int
         var list_Fid = mutableListOf<Int>()
         val sql = "SELECT Fid FROM $schema.$table where UID = $UID"
         val rs = connection!!.createStatement().executeQuery(sql)
@@ -58,7 +58,7 @@ object mysql_get_favorite {
         return arxivID
     }
 
-    fun mysql_get_favorite(UID: Int = 1):MutableList<List<MutableList<String>>>{
+    fun mysql_get_favorite(UID: Int):MutableList<List<MutableList<String>>>{
         val articles = mutableListOf<List<MutableList<String>>>()
         getConnection()
         queryRows_userfavoriterelations(UID = UID).forEach{
@@ -67,15 +67,4 @@ object mysql_get_favorite {
         return articles
     }
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-        var UID: Int = 1
-        val articles = mutableListOf<List<MutableList<String>>>()
-        getConnection()
-        queryRows_userfavoriterelations(UID = UID).forEach{
-            articles.add(Rome2().Rome2(queryRows_favorite(Fid = it)))
-        }
-        println(articles)
-        println(articles.size)
-    }
 }

@@ -2,14 +2,12 @@ package com.example.cardviewdemo.util
 
 import android.content.Intent
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.example.cardviewdemo.R
 import com.example.cardviewdemo.api.mysql.mysql_add_favorite
 import com.example.cardviewdemo.model.PaperBean
-import com.example.cardviewdemo.ui.activity.PDFActivity
-import com.example.cardviewdemo.ui.activity.SettingActivity
-import com.example.cardviewdemo.ui.activity.WebViewActivity
-
+import com.example.cardviewdemo.ui.activity.*
 
 
 //Manage all toolbars
@@ -90,11 +88,11 @@ interface ToolBarManager {
     fun addFavourite(paperDetailBean: PaperBean,UID: String) {
         val i = 1
         println("DEBUG:ADD_FAV"+i)
-        Thread({
-            mysql_add_favorite.mysql_add_favorite(1,paperDetailBean.Weblink)
-
-        }).start()
-
+        if (!UID.equals("") and !UID.equals("-1")){
+            Thread({
+                mysql_add_favorite.mysql_add_favorite(UID.toInt(),paperDetailBean.Weblink)
+            }).start()
+        }
     }
 
     fun viewAsPDF(paperDetailBean: PaperBean) {

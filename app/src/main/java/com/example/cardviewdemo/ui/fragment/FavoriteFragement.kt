@@ -73,7 +73,6 @@ class FavoriteFragement : BaseFragment(),FavoriteView {
     }
 
     override fun initData() {
-        UID="1"
         presenter.loadDatas(UID.toInt())
     }
 
