@@ -11,7 +11,7 @@ import org.jetbrains.anko.find
 import org.scilab.forge.jlatexmath.core.AjLatexMath
 import com.example.cardviewdemo.api.mysql.mysql_add_history
 
-class PaperDetailActivity : BaseActivity(),ToolBarManager {
+class PaperDetailActivity : BaseActivity(), ToolBarManager {
     override val toolbar: Toolbar by lazy { find<Toolbar>(R.id.toolbar) }
     override fun getLayoutId(): Int {
         return R.layout.activity_paper_detail
@@ -19,25 +19,28 @@ class PaperDetailActivity : BaseActivity(),ToolBarManager {
 
 
     override fun initData() {
-        val paperDetailBean = intent.getParcelableExtra<PaperBean>("item")
-        initPaperDetailToolbar(paperDetailBean,UID)
+        val paperDetailBean=intent.getParcelableExtra<PaperBean>("item")
+        initPaperDetailToolbar(paperDetailBean, UID)
         AjLatexMath.init(this)
         CodeProcessor.init(this)
         setData(paperDetailBean)
-        Thread({
-            mysql_add_history.mysql_add_history(UID.toInt(),paperDetailBean.Weblink)
-        }).start()
+        if (!UID.equals("") and !UID.equals("-1")) {
+            Thread({
+                mysql_add_history.mysql_add_history(UID.toInt(), paperDetailBean.Weblink)
+            }).start()
+        }
+
 
         //println("itemBean=$paperDetailBean")
     }
 
-    fun setData(data:PaperBean){
-        article_title.setText(data.Title.replace("\n",""))
+    fun setData(data: PaperBean) {
+        article_title.setText(data.Title.replace("\n", ""))
         article_authors.setText(data.Author)
-        article_date_submit.setText("Submitted:"+data.UpdateTime)
-        article_id.setText("ID:"+data.ArxivID)
+        article_date_submit.setText("Submitted:" + data.UpdateTime)
+        article_id.setText("ID:" + data.ArxivID)
         article_type.setText(data.Catorgary)
-        article_abstract.setText(data.Abstract.replace("\n",""))
+        article_abstract.setText(data.Abstract.replace("\n", ""))
     }
 
     //Icon change
