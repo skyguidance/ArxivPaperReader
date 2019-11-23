@@ -1,3 +1,8 @@
+/**
+ * Create by Qi,TianYi <qitianyi@gwmail.gwu.edu>
+ * CSCI 6221 Course Project - Team 15 - Fall 2019. George Washington University.
+ * Copyright 2019 - Present
+ */
 package com.example.cardviewdemo.ui.fragment
 
 import android.os.Bundle
@@ -9,11 +14,24 @@ import com.jaredrummler.materialspinner.MaterialSpinner
 import kotlinx.android.synthetic.main.fragment_advanced_search.*
 import kotlinx.android.synthetic.main.fragment_advanced_search.view.*
 
+/**
+ * The Advanced Search Fragment.
+ * Provided Search By Sub-Category Function.
+ */
 class AdvancedSearchFragment : BaseFragment() {
-    var Category: String = ""
-    var SearchWord: String = ""
+    var Category: String=""
+    var SearchWord: String=""
+
+    /**
+     * Init View for this Fragment.
+     */
     override fun initView(): View? {
-        var view =  View.inflate(context, R.layout.fragment_advanced_search, null)
+        var view=View.inflate(context, R.layout.fragment_advanced_search, null)
+
+        /**
+         * The Main Category Spinner.
+         * This is the list for the Main Category.
+         */
         view.article_one_spinner.setItems(
             "Astrophysics",
             "Condensed Matter",
@@ -35,6 +53,11 @@ class AdvancedSearchFragment : BaseFragment() {
             "Quantum Physics",
             "Statistics"
         )
+
+        /**
+         * This is the initial resources for sub-category.
+         * Prevent App from crashing. Use this as a filler.
+         */
         view.article_two_spinner.setItems(
             "Astrophysics of Galaxies",
             "Cosmology and Nongalactic Astrophysics",
@@ -43,6 +66,11 @@ class AdvancedSearchFragment : BaseFragment() {
             "Instrumentation and Methods for Astrophysics",
             "Solar and Stellar Astrophysics"
         )
+
+        /**
+         * Main Category Listener.
+         * Set the Sub-category choices based on the main category.
+         */
         view.article_one_spinner.setOnItemSelectedListener(object :
             MaterialSpinner.OnItemSelectedListener<String> {
             override fun onItemSelected(
@@ -273,6 +301,10 @@ class AdvancedSearchFragment : BaseFragment() {
             }
         })
 
+        /**
+         * Sub Category Listener.
+         * Set the Category Variable to selected Sub-Category.
+         */
         view.article_two_spinner.setOnItemSelectedListener(object :
             MaterialSpinner.OnItemSelectedListener<String> {
             override fun onItemSelected(
@@ -283,469 +315,469 @@ class AdvancedSearchFragment : BaseFragment() {
             ) {
                 when (item) {
                     "Astrophysics of Galaxies" -> {
-                        Category = "astro-ph.GA"
+                        Category="astro-ph.GA"
                     }
                     "Cosmology and Nongalactic Astrophysics" -> {
-                        Category = "astro-ph.CO"
+                        Category="astro-ph.CO"
                     }
                     "Earth and Planetary Astrophysics" -> {
-                        Category = "astro-ph.EP"
+                        Category="astro-ph.EP"
                     }
                     "High Energy Astrophysical Phenomena" -> {
-                        Category = "astro-ph.HE"
+                        Category="astro-ph.HE"
                     }
                     "Instrumentation and Methods for Astrophysics" -> {
-                        Category = "astro-ph.IM"
+                        Category="astro-ph.IM"
                     }
                     "Solar and Stellar Astrophysics" -> {
-                        Category = "astro-ph.SR"
+                        Category="astro-ph.SR"
                     }
                     "Disordered Systems and Neural Networks" -> {
-                        Category = "cond-mat.dis-nn"
+                        Category="cond-mat.dis-nn"
                     }
                     "Materials Science" -> {
-                        Category = "cond-mat.mtrl-sci"
+                        Category="cond-mat.mtrl-sci"
                     }
                     "Mesoscale and Nanoscale Physics" -> {
-                        Category = "cond-mat.mes-hall"
+                        Category="cond-mat.mes-hall"
                     }
                     "Other Condensed Matter" -> {
-                        Category = "cond-mat.other"
+                        Category="cond-mat.other"
                     }
                     "Quantum Gases" -> {
-                        Category = "cond-mat.quant-gas"
+                        Category="cond-mat.quant-gas"
                     }
                     "Soft Condensed Matter" -> {
-                        Category = "cond-mat.soft"
+                        Category="cond-mat.soft"
                     }
                     "Statistical Mechanics" -> {
-                        Category = "cond-mat.stat-mech"
+                        Category="cond-mat.stat-mech"
                     }
                     "Strongly Correlated Electrons" -> {
-                        Category = "cond-mat.str-el"
+                        Category="cond-mat.str-el"
                     }
                     "Superconductivity" -> {
-                        Category = "cond-mat.supr-con"
+                        Category="cond-mat.supr-con"
                     }
                     "Artificial Intelligence" -> {
-                        Category = "cs.AI"
+                        Category="cs.AI"
                     }
                     "Computation and Language" -> {
-                        Category = "cs.CL"
+                        Category="cs.CL"
                     }
                     "Computational Complexity" -> {
-                        Category = "cs.CC"
+                        Category="cs.CC"
                     }
                     "Computational Engineering, Finance, and Science" -> {
-                        Category = "cs.CE"
+                        Category="cs.CE"
                     }
                     "Computational Geometry" -> {
-                        Category = "cs.CG"
+                        Category="cs.CG"
                     }
                     "Computer Science and Game Theory" -> {
-                        Category = "cs.GT"
+                        Category="cs.GT"
                     }
                     "Computer Vision and Pattern Recognition" -> {
-                        Category = "cs.CV"
+                        Category="cs.CV"
                     }
                     "Computers and Society" -> {
-                        Category = "cs.CY"
+                        Category="cs.CY"
                     }
                     "Cryptography and Security" -> {
-                        Category = "cs.CR"
+                        Category="cs.CR"
                     }
                     "Data Structures and Algorithms" -> {
-                        Category = "cs.DS"
+                        Category="cs.DS"
                     }
                     "Databases" -> {
-                        Category = "cs.DB"
+                        Category="cs.DB"
                     }
                     "Digital Libraries" -> {
-                        Category = "cs.DL"
+                        Category="cs.DL"
                     }
                     "Discrete Mathematics" -> {
-                        Category = "cs.DM"
+                        Category="cs.DM"
                     }
                     "Distributed, Parallel, and Cluster Computing" -> {
-                        Category = "cs.DC"
+                        Category="cs.DC"
                     }
                     "Emerging Technologies" -> {
-                        Category = "cs.ET"
+                        Category="cs.ET"
                     }
                     "Formal Languages and Automata Theory" -> {
-                        Category = "cs.FL"
+                        Category="cs.FL"
                     }
                     "General Literature" -> {
-                        Category = "cs.GL"
+                        Category="cs.GL"
                     }
                     "Graphics" -> {
-                        Category = "cs.GR"
+                        Category="cs.GR"
                     }
                     "Hardware Architecture" -> {
-                        Category = "cs.AR"
+                        Category="cs.AR"
                     }
                     "Human-Computer Interaction" -> {
-                        Category = "cs.HC"
+                        Category="cs.HC"
                     }
                     "Information Retrieval" -> {
-                        Category = "cs.IR"
+                        Category="cs.IR"
                     }
                     "Information Theory" -> {
-                        Category = "cs.IT"
+                        Category="cs.IT"
                     }
                     "Logic in Computer Science" -> {
-                        Category = "cs.LO"
+                        Category="cs.LO"
                     }
                     "Machine Learning" -> {
-                        Category = "cs.LG"
+                        Category="cs.LG"
                     }
                     "Mathematical Software" -> {
-                        Category = "cs.MS"
+                        Category="cs.MS"
                     }
                     "Multiagent Systems" -> {
-                        Category = "cs.MA"
+                        Category="cs.MA"
                     }
                     "Multimedia" -> {
-                        Category = "cs.MM"
+                        Category="cs.MM"
                     }
                     "Networking and Internet Architecture" -> {
-                        Category = "cs.NI"
+                        Category="cs.NI"
                     }
                     "Neural and Evolutionary Computing" -> {
-                        Category = "cs.NE"
+                        Category="cs.NE"
                     }
                     "Numerical Analysis" -> {
-                        Category = "cs.NA"
+                        Category="cs.NA"
                     }
                     "Operating Systems" -> {
-                        Category = "cs.OS"
+                        Category="cs.OS"
                     }
                     "Other Computer Science" -> {
-                        Category = "cs.OH"
+                        Category="cs.OH"
                     }
                     "Performance" -> {
-                        Category = "cs.PF"
+                        Category="cs.PF"
                     }
                     "Programming Languages" -> {
-                        Category = "cs.PL"
+                        Category="cs.PL"
                     }
                     "Robotics" -> {
-                        Category = "cs.RO"
+                        Category="cs.RO"
                     }
                     "Social and Information Networks" -> {
-                        Category = "cs.SI"
+                        Category="cs.SI"
                     }
                     "Software Engineering" -> {
-                        Category = "cs.SE"
+                        Category="cs.SE"
                     }
                     "Sound" -> {
-                        Category = "cs.SD"
+                        Category="cs.SD"
                     }
                     "Symbolic Computation" -> {
-                        Category = "cs.SC"
+                        Category="cs.SC"
                     }
                     "Systems and Control" -> {
-                        Category = "cs.SY"
+                        Category="cs.SY"
                     }
                     "Econometrics" -> {
-                        Category = "econ.EM"
+                        Category="econ.EM"
                     }
                     "General Economics" -> {
-                        Category = "econ.GN"
+                        Category="econ.GN"
                     }
                     "Theoretical Economics" -> {
-                        Category = "econ.TH"
+                        Category="econ.TH"
                     }
                     "Audio and Speech Processing" -> {
-                        Category = "eess.AS"
+                        Category="eess.AS"
                     }
                     "Image and Video Processing" -> {
-                        Category = "eess.IV"
+                        Category="eess.IV"
                     }
                     "Signal Processing" -> {
-                        Category = "eess.SP"
+                        Category="eess.SP"
                     }
                     "Systems and Control" -> {
-                        Category = "eess.SY"
+                        Category="eess.SY"
                     }
                     "General Relativity and Quantum Cosmology" -> {
-                        Category = "gr-qc"
+                        Category="gr-qc"
                     }
                     "High Energy Physics - Experiment" -> {
-                        Category = "hep-ex"
+                        Category="hep-ex"
                     }
                     "High Energy Physics - Lattice" -> {
-                        Category = "hep-lat"
+                        Category="hep-lat"
                     }
                     "High Energy Physics - Phenomenology" -> {
-                        Category = "hep-ph"
+                        Category="hep-ph"
                     }
                     "High Energy Physics - Theory" -> {
-                        Category = "hep-th"
+                        Category="hep-th"
                     }
                     "Algebraic Geometry" -> {
-                        Category = "math.AG"
+                        Category="math.AG"
                     }
                     "Algebraic Topology" -> {
-                        Category = "math.AT"
+                        Category="math.AT"
                     }
                     "Analysis of PDEs" -> {
-                        Category = "math.AP"
+                        Category="math.AP"
                     }
                     "Category Theory" -> {
-                        Category = "math.CT"
+                        Category="math.CT"
                     }
                     "Classical Analysis and ODEs" -> {
-                        Category = "math.CA"
+                        Category="math.CA"
                     }
                     "Combinatorics" -> {
-                        Category = "math.CO"
+                        Category="math.CO"
                     }
                     "Commutative Algebra" -> {
-                        Category = "math.AC"
+                        Category="math.AC"
                     }
                     "Complex Variables" -> {
-                        Category = "math.CV"
+                        Category="math.CV"
                     }
                     "Differential Geometry" -> {
-                        Category = "math.DG"
+                        Category="math.DG"
                     }
                     "Dynamical Systems" -> {
-                        Category = "math.DS"
+                        Category="math.DS"
                     }
                     "Functional Analysis" -> {
-                        Category = "math.FA"
+                        Category="math.FA"
                     }
                     "General Mathematics" -> {
-                        Category = "math.GM"
+                        Category="math.GM"
                     }
                     "General Topology" -> {
-                        Category = "math.GN"
+                        Category="math.GN"
                     }
                     "Geometric Topology" -> {
-                        Category = "math.GT"
+                        Category="math.GT"
                     }
                     "Group Theory" -> {
-                        Category = "math.GR"
+                        Category="math.GR"
                     }
                     "History and Overview" -> {
-                        Category = "math.HO"
+                        Category="math.HO"
                     }
                     "Information Theory" -> {
-                        Category = "math.IT"
+                        Category="math.IT"
                     }
                     "K-Theory and Homology" -> {
-                        Category = "math.KT"
+                        Category="math.KT"
                     }
                     "Logic" -> {
-                        Category = "math.LO"
+                        Category="math.LO"
                     }
                     "Mathematical Physics" -> {
-                        Category = "math.MP"
+                        Category="math.MP"
                     }
                     "Metric Geometry" -> {
-                        Category = "math.MG"
+                        Category="math.MG"
                     }
                     "Number Theory" -> {
-                        Category = "math.NT"
+                        Category="math.NT"
                     }
                     "Numerical Analysis" -> {
-                        Category = "math.NA"
+                        Category="math.NA"
                     }
                     "Operator Algebras" -> {
-                        Category = "math.OA"
+                        Category="math.OA"
                     }
                     "Optimization and Control" -> {
-                        Category = "math.OC"
+                        Category="math.OC"
                     }
                     "Probability" -> {
-                        Category = "math.PR"
+                        Category="math.PR"
                     }
                     "Quantum Algebra" -> {
-                        Category = "math.QA"
+                        Category="math.QA"
                     }
                     "Representation Theory" -> {
-                        Category = "math.RT"
+                        Category="math.RT"
                     }
                     "Rings and Algebras" -> {
-                        Category = "math.RA"
+                        Category="math.RA"
                     }
                     "Spectral Theory" -> {
-                        Category = "math.SP"
+                        Category="math.SP"
                     }
                     "Statistics Theory" -> {
-                        Category = "math.ST"
+                        Category="math.ST"
                     }
                     "Symplectic Geometry" -> {
-                        Category = "math.SG"
+                        Category="math.SG"
                     }
                     "Mathematical Physics" -> {
-                        Category = "math-ph"
+                        Category="math-ph"
                     }
                     "Adaptation and Self-Organizing Systems" -> {
-                        Category = "nlin.AO"
+                        Category="nlin.AO"
                     }
                     "Cellular Automata and Lattice Gases" -> {
-                        Category = "nlin.CG"
+                        Category="nlin.CG"
                     }
                     "Chaotic Dynamics" -> {
-                        Category = "nlin.CD"
+                        Category="nlin.CD"
                     }
                     "Exactly Solvable and Integrable Systems" -> {
-                        Category = "nlin.SI"
+                        Category="nlin.SI"
                     }
                     "Pattern Formation and Solitons" -> {
-                        Category = "nlin.PS"
+                        Category="nlin.PS"
                     }
                     "Nuclear Experiment" -> {
-                        Category = "nucl-ex"
+                        Category="nucl-ex"
                     }
                     "Nuclear Theory" -> {
-                        Category = "nucl-th"
+                        Category="nucl-th"
                     }
                     "Accelerator Physics" -> {
-                        Category = "physics.acc-ph"
+                        Category="physics.acc-ph"
                     }
                     "Applied Physics" -> {
-                        Category = "physics.app-ph"
+                        Category="physics.app-ph"
                     }
                     "Atmospheric and Oceanic Physics" -> {
-                        Category = "physics.ao-ph"
+                        Category="physics.ao-ph"
                     }
                     "Atomic Physics" -> {
-                        Category = "physics.atom-ph"
+                        Category="physics.atom-ph"
                     }
                     "Atomic and Molecular Clusters" -> {
-                        Category = "physics.atm-clus"
+                        Category="physics.atm-clus"
                     }
                     "Biological Physics" -> {
-                        Category = "physics.bio-ph"
+                        Category="physics.bio-ph"
                     }
                     "Chemical Physics" -> {
-                        Category = "physics.chem-ph"
+                        Category="physics.chem-ph"
                     }
                     "Classical Physics" -> {
-                        Category = "physics.class-ph"
+                        Category="physics.class-ph"
                     }
                     "Computational Physics" -> {
-                        Category = "physics.comp-ph"
+                        Category="physics.comp-ph"
                     }
                     "Data Analysis, Statistics and Probability" -> {
-                        Category = "physics.data-an"
+                        Category="physics.data-an"
                     }
                     "Fluid Dynamics" -> {
-                        Category = "physics.flu-dyn"
+                        Category="physics.flu-dyn"
                     }
                     "General Physics" -> {
-                        Category = "physics.gen-ph"
+                        Category="physics.gen-ph"
                     }
                     "Geophysics" -> {
-                        Category = "physics.geo-ph"
+                        Category="physics.geo-ph"
                     }
                     "History and Philosophy of Physics" -> {
-                        Category = "physics.hist-ph"
+                        Category="physics.hist-ph"
                     }
                     "Instrumentation and Detectors" -> {
-                        Category = "physics.ins-det"
+                        Category="physics.ins-det"
                     }
                     "Medical Physics" -> {
-                        Category = "physics.med-ph"
+                        Category="physics.med-ph"
                     }
                     "Optics" -> {
-                        Category = "physics.optics"
+                        Category="physics.optics"
                     }
                     "Physics Education" -> {
-                        Category = "physics.ed-ph"
+                        Category="physics.ed-ph"
                     }
                     "Physics and Society" -> {
-                        Category = "physics.soc-ph"
+                        Category="physics.soc-ph"
                     }
                     "Plasma Physics" -> {
-                        Category = "physics.plasm-ph"
+                        Category="physics.plasm-ph"
                     }
                     "Popular Physics" -> {
-                        Category = "physics.pop-ph"
+                        Category="physics.pop-ph"
                     }
                     "Space Physics" -> {
-                        Category = "physics.space-ph"
+                        Category="physics.space-ph"
                     }
                     "Biomolecules" -> {
-                        Category = "q-bio.BM"
+                        Category="q-bio.BM"
                     }
                     "Cell Behavior" -> {
-                        Category = "q-bio.CB"
+                        Category="q-bio.CB"
                     }
                     "Genomics" -> {
-                        Category = "q-bio.GN"
+                        Category="q-bio.GN"
                     }
                     "Molecular Networks" -> {
-                        Category = "q-bio.MN"
+                        Category="q-bio.MN"
                     }
                     "Neurons and Cognition" -> {
-                        Category = "q-bio.NC"
+                        Category="q-bio.NC"
                     }
                     "Other Quantitative Biology" -> {
-                        Category = "q-bio.OT"
+                        Category="q-bio.OT"
                     }
                     "Populations and Evolution" -> {
-                        Category = "q-bio.PE"
+                        Category="q-bio.PE"
                     }
                     "Quantitative Methods" -> {
-                        Category = "q-bio.QM"
+                        Category="q-bio.QM"
                     }
                     "Subcellular Processes" -> {
-                        Category = "q-bio.SC"
+                        Category="q-bio.SC"
                     }
                     "Tissues and Organs" -> {
-                        Category = "q-bio.TO"
+                        Category="q-bio.TO"
                     }
                     "Computational Finance" -> {
-                        Category = "q-fin.CP"
+                        Category="q-fin.CP"
                     }
                     "Economics" -> {
-                        Category = "q-fin.EC"
+                        Category="q-fin.EC"
                     }
                     "General Finance" -> {
-                        Category = "q-fin.GN"
+                        Category="q-fin.GN"
                     }
                     "Mathematical Finance" -> {
-                        Category = "q-fin.MF"
+                        Category="q-fin.MF"
                     }
                     "Portfolio Management" -> {
-                        Category = "q-fin.PM"
+                        Category="q-fin.PM"
                     }
                     "Pricing of Securities" -> {
-                        Category = "q-fin.PR"
+                        Category="q-fin.PR"
                     }
                     "Risk Management" -> {
-                        Category = "q-fin.RM"
+                        Category="q-fin.RM"
                     }
                     "Statistical Finance" -> {
-                        Category = "q-fin.ST"
+                        Category="q-fin.ST"
                     }
                     "Trading and Market Microstructure" -> {
-                        Category = "q-fin.TR"
+                        Category="q-fin.TR"
                     }
                     "Quantum Physics" -> {
-                        Category = "quant-ph"
+                        Category="quant-ph"
                     }
                     "Applications" -> {
-                        Category = "stat.AP"
+                        Category="stat.AP"
                     }
                     "Computation" -> {
-                        Category = "stat.CO"
+                        Category="stat.CO"
                     }
                     "Machine Learning" -> {
-                        Category = "stat.ML"
+                        Category="stat.ML"
                     }
                     "Methodology" -> {
-                        Category = "stat.ME"
+                        Category="stat.ME"
                     }
                     "Other Statistics" -> {
-                        Category = "stat.OT"
+                        Category="stat.OT"
                     }
                     "Statistics Theory" -> {
-                        Category = "stat.TH"
+                        Category="stat.TH"
                     }
                     else -> {
                         println("Debug: Second" + item)
@@ -755,31 +787,16 @@ class AdvancedSearchFragment : BaseFragment() {
 
         })
 
-
-//        view.search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                if (query != null) {
-//                    SearchWord = query
-//                }
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                return false;
-//            }
-//
-//        })
+        /**
+         * Set the Search Button on Click Listener.
+         */
         view.btn_go_advanced_search.setOnClickListener {
-            SearchWord = view.search_view.text.toString()
-            println("BTN Onclick:" + Category)
-            println("BTN Onclick:" + SearchWord)
-            var frag = PaperBrowseFragment()
-            var item = Bundle()
-            item.putString("SearchWord",SearchWord)
-            item.putString("Category",Category)
+            SearchWord=view.search_view.text.toString()
+            var frag=PaperBrowseFragment()
+            var item=Bundle()
             frag.setArguments(item)
             fragmentManager?.beginTransaction()?.addToBackStack(null)
-                ?.replace(R.id.container,frag)?.commit()
+                ?.replace(R.id.container, frag)?.commit()
         }
         return view
     }
