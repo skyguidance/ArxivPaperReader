@@ -27,9 +27,7 @@ class RegisterFragment : BaseFragment(){
                 fragmentManager?.beginTransaction()?.addToBackStack(null)
                     ?.replace(R.id.container,LoginFragment())?.commit()
             } catch (e: Exception) {
-
-            } finally {
-
+                e.printStackTrace()
             }
 
         }
