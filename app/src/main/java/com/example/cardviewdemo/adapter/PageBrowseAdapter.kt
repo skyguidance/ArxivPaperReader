@@ -118,7 +118,7 @@ class PageBrowseAdapter : RecyclerView.Adapter<PageBrowseAdapter.PageBrowseHolde
     }
 
     /**
-     * This is the Page Browser Holder.
+     * The holder for page browser.
      */
     class PageBrowseHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
