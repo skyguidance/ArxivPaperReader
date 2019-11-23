@@ -1,3 +1,8 @@
+/**
+ * Create by Liu,GaoZhi <chrysalisliu@gwu.edu>
+ * CSCI 6221 Course Project - Team 15 - Fall 2019. George Washington University.
+ * Copyright 2019 - Present
+ */
 package com.example.cardviewdemo.base
 
 import android.content.Context
@@ -10,36 +15,48 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.runOnUiThread
 import org.jetbrains.anko.support.v4.toast
 
-//All fragments' base class
-abstract class BaseFragment: Fragment(), AnkoLogger {
+/**
+ * Base Fragment abstract Class.
+ */
+abstract class BaseFragment : Fragment(), AnkoLogger {
 
-    var UID: String = "1"
+    /**
+     * Global UID.
+     * This is the value to determine which user is logged in.
+     * if the Value is 0 or -1 or <empty> means no user logged in.
+     */
+    var UID: String="1"
 
-    fun getThisUser():String{
-        var pref = this.activity?.getSharedPreferences("CurrentUserInfo", Context.MODE_PRIVATE)
+    /**
+     * Get the current User from the SharedPreferences from Android.
+     * And set the UID variable.
+     */
+    fun getThisUser(): String {
+        var pref=this.activity?.getSharedPreferences("CurrentUserInfo", Context.MODE_PRIVATE)
         if (pref != null) {
-            UID = pref.getString("UID", "")
-        }else{
-            UID = ""
+            UID=pref.getString("UID", "")
+        } else {
+            UID=""
         }
-        println("DEBUG:GETUID:"+UID)
         return UID
     }
-    fun isRegistered():Boolean{
-        var pref = this.activity?.getSharedPreferences("CurrentUserInfo", Context.MODE_PRIVATE)
+
+    /**
+     * Check if the user is logged in.
+     * Return True is logged in.
+     */
+    fun isRegistered(): Boolean {
+        var pref=this.activity?.getSharedPreferences("CurrentUserInfo", Context.MODE_PRIVATE)
         return (pref != null)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        init()
     }
 
-    //fragment initialize
-    protected fun init() {
-
-    }
-
+    /**
+     * On Create View. Do Get user.
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,28 +66,38 @@ abstract class BaseFragment: Fragment(), AnkoLogger {
         return initView()
     }
 
-    //get layout view
+    /**
+     * Init View.
+     */
     abstract fun initView(): View?
 
+    /**
+     * Activity Created.
+     */
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initListener()
         initData()
     }
 
-    //data initialize
+    /**
+     * Init Data.
+     */
     open protected fun initData() {
 
     }
 
-    //adapter listener
+    /**
+     * Init Listener.
+     */
     open protected fun initListener() {
 
     }
 
-    fun myToast(msg: String){
+    /**
+     * Create for easy Toast.
+     */
+    fun myToast(msg: String) {
         context?.runOnUiThread { toast(msg) }
     }
-
-
 }
