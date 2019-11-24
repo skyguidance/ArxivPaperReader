@@ -19,6 +19,9 @@ import com.example.cardviewdemo.widget.LoadMoreView
 class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>() {
     private var list=ArrayList<PaperBean>()
 
+    /**
+     * Parcel the API back info to a PaperBean.
+     */
     fun updateList(cleanPrevious: Int, romeResult: MutableList<List<MutableList<String>>>) {
         /**
          * if cleanPrevious is set to 1,the previous list will be cleaned.

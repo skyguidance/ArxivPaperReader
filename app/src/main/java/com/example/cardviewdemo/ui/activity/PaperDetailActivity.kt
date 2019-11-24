@@ -1,3 +1,8 @@
+/**
+ * Create by Qi,TianYi <qitianyi@gwmail.gwu.edu>
+ * CSCI 6221 Course Project - Team 15 - Fall 2019. George Washington University.
+ * Copyright 2019 - Present
+ */
 package com.example.cardviewdemo.ui.activity
 
 import androidx.appcompat.widget.Toolbar
@@ -11,13 +16,23 @@ import org.jetbrains.anko.find
 import org.scilab.forge.jlatexmath.core.AjLatexMath
 import com.example.cardviewdemo.api.mysql.mysql_add_history
 
+/**
+ * This is the Page Detail Activity.
+ * This Activity displays paper detail info. like Author, Abstract(Rendered as LaTeX.)...
+ */
 class PaperDetailActivity : BaseActivity(), ToolBarManager {
     override val toolbar: Toolbar by lazy { find<Toolbar>(R.id.toolbar) }
+
+    /**
+     * Get the layout XML info.
+     */
     override fun getLayoutId(): Int {
         return R.layout.activity_paper_detail
     }
 
-
+    /**
+     * Init Data for Activity.
+     */
     override fun initData() {
         val paperDetailBean=intent.getParcelableExtra<PaperBean>("item")
         initPaperDetailToolbar(paperDetailBean, UID)
@@ -29,11 +44,11 @@ class PaperDetailActivity : BaseActivity(), ToolBarManager {
                 mysql_add_history.mysql_add_history(UID.toInt(), paperDetailBean.Weblink)
             }).start()
         }
-
-
-        //println("itemBean=$paperDetailBean")
     }
 
+    /**
+     * Set Data by visiting the PaperBean Stucture.
+     */
     fun setData(data: PaperBean) {
         article_title.setText(data.Title.replace("\n", ""))
         article_authors.setText(data.Author)
@@ -42,40 +57,5 @@ class PaperDetailActivity : BaseActivity(), ToolBarManager {
         article_type.setText(data.Catorgary)
         article_abstract.setText(data.Abstract.replace("\n", ""))
     }
-
-    //Icon change
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        getMenuInflater().inflate(R.menu.paper_detail,menu);
-//        return true;
-//    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-//        when (item?.itemId) {
-//            R.id.favourite -> {
-//                return true
-//            }
-//            R.id.favourited -> {
-//                return true
-//            }
-//            R.id.pdf -> {
-//                return true
-//            }
-//            R.id.renderLatex -> {
-//                return true
-//            }
-//            R.id.setting -> {
-//                gotoSettings()
-//                return true
-//            }
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
-//
-//    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
-//        invalidateOptionsMenu();
-//        menu.findItem(R.id.favourite).isVisible=false;
-//        menu.findItem(R.id.favourited).isVisible=true;
-//        return super.onPrepareOptionsMenu(menu);
-//    }
 
 }
