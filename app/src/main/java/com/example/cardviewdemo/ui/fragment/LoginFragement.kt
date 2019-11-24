@@ -1,3 +1,8 @@
+/**
+ * Create by Hang,Wu <hwu91@gwu.edu>
+ * CSCI 6221 Course Project - Team 15 - Fall 2019. George Washington University.
+ * Copyright 2019 - Present
+ */
 package com.example.cardviewdemo.ui.fragment
 
 import SettingsFragement
