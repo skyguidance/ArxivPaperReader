@@ -1,3 +1,8 @@
+/**
+ * Create by Liu,GaoZhi <chrysalisliu@gwu.edu>
+ * CSCI 6221 Course Project - Team 15 - Fall 2019. George Washington University.
+ * Copyright 2019 - Present
+ */
 package com.example.cardviewdemo.ui.activity
 
 import androidx.appcompat.widget.Toolbar
@@ -8,9 +13,13 @@ import com.example.cardviewdemo.util.ToolBarManager
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.find
 
-
+/**
+ * This is the Android Home Page Main Activity.
+ */
 class MainActivity : BaseActivity(), ToolBarManager {
-    //lazy load
+    /**
+     * Lazy Load.
+     */
     override val toolbar: Toolbar by lazy { find<Toolbar>(R.id.toolbar) }
 
     override fun getLayoutId(): Int {
@@ -23,13 +32,16 @@ class MainActivity : BaseActivity(), ToolBarManager {
 
     override fun initListener() {
         //tab switch listener
-        bottomBar.setOnTabSelectListener{
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.container, FragmentUtil.fragmentUtil.getFragment(it), it.toString())
+        bottomBar.setOnTabSelectListener {
+            val transaction=supportFragmentManager.beginTransaction()
+            transaction.replace(
+                R.id.container,
+                FragmentUtil.fragmentUtil.getFragment(it),
+                it.toString()
+            )
             transaction.commit()
         }
     }
-
 
 
 }

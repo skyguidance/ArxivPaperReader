@@ -17,9 +17,9 @@ import kotlinx.android.synthetic.main.item_home.view.*
  * Set Per CardView with PaperDetail in the PaperBean Stucture.
  */
 class HomeItemView : RelativeLayout {
-    /*
-    * Flash Each View with the PaperBean Data
-    */
+    /**
+     * Flash Each View with the PaperBean Data
+     */
     fun setData(data: PaperBean) {
         article_title.setText(data.Title.replace("\n", ""))
         article_authors.setText(data.Author)

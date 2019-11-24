@@ -1,3 +1,8 @@
+/**
+ * Create by Liu,GaoZhi <chrysalisliu@gwu.edu>
+ * CSCI 6221 Course Project - Team 15 - Fall 2019. George Washington University.
+ * Copyright 2019 - Present
+ */
 package com.example.cardviewdemo.ui.fragment
 
 import android.graphics.Color
@@ -13,16 +18,17 @@ import com.example.cardviewdemo.view.HomeView
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.jetbrains.anko.support.v4.startActivity
 
+/**
+ * This is the Android Home Fragment.
+ */
 class HomeFragment : BaseFragment(), HomeView {
     override fun loadSuccess(
         cleanPrevious: Int,
         romeResult: MutableList<List<MutableList<String>>>
     ) {
-        //TODO: BUG: If not refreshed homeview, click accountview may break down
-        refreshLayout?.isRefreshing = false
+        refreshLayout?.isRefreshing=false
         adapter.updateList(cleanPrevious, romeResult)
     }
-
 
     val adapter by lazy { HomeAdapter() }
     val presenter by lazy { HomePresenterImpl(this) }
@@ -32,9 +38,9 @@ class HomeFragment : BaseFragment(), HomeView {
 
     override fun initListener() {
         //initialize recycleView
-        recycleView.layoutManager = LinearLayoutManager(context)
+        recycleView.layoutManager=LinearLayoutManager(context)
         //adapt
-        recycleView.adapter = adapter
+        recycleView.adapter=adapter
         //initialize swipeRefresh
         refreshLayout.setColorSchemeColors(Color.RED)
         refreshLayout.setOnRefreshListener {
@@ -49,10 +55,10 @@ class HomeFragment : BaseFragment(), HomeView {
 
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    val layoutManager = recyclerView.layoutManager
+                    val layoutManager=recyclerView.layoutManager
                     if (layoutManager is LinearLayoutManager) {
-                        val manager: LinearLayoutManager = layoutManager
-                        val lastPosition = manager.findLastVisibleItemPosition()
+                        val manager: LinearLayoutManager=layoutManager
+                        val lastPosition=manager.findLastVisibleItemPosition()
                         if (lastPosition == adapter.itemCount - 1) {
                             // is the last one
                             presenter.loadMore(adapter.itemCount - 1)
