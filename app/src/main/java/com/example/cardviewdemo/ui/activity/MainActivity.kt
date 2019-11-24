@@ -30,8 +30,10 @@ class MainActivity : BaseActivity(), ToolBarManager {
         initMainToolBar()
     }
 
+    /**
+     * tab switch listener
+     */
     override fun initListener() {
-        //tab switch listener
         bottomBar.setOnTabSelectListener {
             val transaction=supportFragmentManager.beginTransaction()
             transaction.replace(
