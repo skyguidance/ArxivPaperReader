@@ -23,6 +23,9 @@ import org.jetbrains.anko.support.v4.runOnUiThread
  * Accounts' login page is presented in this fragment.
  */
 class AccountFragmentLogin : BaseFragment() {
+    /**
+     * Create User AccountLogin Fragment.
+     */
     fun newInstance(): AccountFragmentLogin {
         return AccountFragmentLogin()
     }

@@ -16,6 +16,9 @@ import kotlinx.android.synthetic.main.fragment_account.view.*
  * Users' account lists is presented in this fragment.
  */
 class AccountFragment : BaseFragment(){
+    /**
+     * Create Account Fragment.
+     */
     fun newInstance(): AccountFragment {
         return AccountFragment()
     }

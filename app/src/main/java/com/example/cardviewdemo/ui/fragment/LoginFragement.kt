@@ -21,7 +21,9 @@ import java.io.IOException
  * Login's page is presented in this fragment.
  */
 class LoginFragment : BaseFragment() {
-
+    /**
+     * Create Login Fragment.
+     */
     fun newInstance(): LoginFragment {
         return LoginFragment()
     }
@@ -45,7 +47,9 @@ class LoginFragment : BaseFragment() {
 
 
     }
-
+    /**
+     * Set User's UID.
+     */
     fun setThisUser(currentUID: String) {
         var pref=this.activity?.getSharedPreferences("CurrentUserInfo", Context.MODE_PRIVATE)
         var editor=pref?.edit()
