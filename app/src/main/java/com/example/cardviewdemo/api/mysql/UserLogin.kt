@@ -4,7 +4,10 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
 
-
+/**
+ * This is the UserLogin Object.
+ * This Object is used to user login function.
+ */
 object UserLogin {
 
     internal var conn: Connection?=null

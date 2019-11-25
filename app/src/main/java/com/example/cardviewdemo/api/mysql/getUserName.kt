@@ -4,7 +4,10 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
 
-
+/**
+ * This is the mgetUserName Object.
+ * This Object get User's name.
+ */
 object getUserName {
 
     internal var conn: Connection?=null
