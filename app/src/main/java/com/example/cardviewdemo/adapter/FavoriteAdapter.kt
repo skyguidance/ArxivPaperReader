@@ -122,5 +122,10 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>() {
     fun setMyListener(listener: (paperBean: PaperBean) -> Unit) {
         this.listener=listener
     }
+    /**
+     * The holder for Favourite Browser.
+     */
+    class FavoriteHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+    }
 }

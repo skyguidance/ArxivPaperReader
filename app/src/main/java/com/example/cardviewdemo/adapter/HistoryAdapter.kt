@@ -96,7 +96,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryHolder>() {
     }
 
     /**
-     * Bind On click lister for card view item. Jump to  HomeItemView.
+     * Bind On click lister for card view item. Jump to HomeItemView.
      */
     override fun onBindViewHolder(holder: HistoryAdapter.HistoryHolder, position: Int) {
         if (position == list.size) {
@@ -121,5 +121,10 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryHolder>() {
      */
     fun setMyListener(listener: (paperBean: PaperBean) -> Unit) {
         this.listener=listener
+    }
+    /**
+     * The holder for History Browser.
+     */
+    class HistoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 }
