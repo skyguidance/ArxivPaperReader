@@ -16,7 +16,11 @@ import com.example.cardviewdemo.view.FavoriteView
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import org.jetbrains.anko.support.v4.startActivity
 
-class FavoriteFragement : BaseFragment(),FavoriteView {
+/**
+ * This is the Favorite fragment.
+ * Users' favorite lists is presented in this fragment.
+ */
+class onScrolledFavoriteFragement : BaseFragment(),FavoriteView {
     fun newInstance(): FavoriteFragement {
         return FavoriteFragement()
     }
@@ -51,10 +55,6 @@ class FavoriteFragement : BaseFragment(),FavoriteView {
         }
         // listen to the swap
         rv_favorite_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(rv_favorite_list: RecyclerView, dx: Int, dy: Int) {
-
-            }
-
             override fun onScrollStateChanged(rv_favorite_list: RecyclerView, newState: Int) {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     val layoutManager = rv_favorite_list.layoutManager
