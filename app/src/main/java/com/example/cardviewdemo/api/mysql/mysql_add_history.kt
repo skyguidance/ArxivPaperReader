@@ -4,7 +4,8 @@ import java.sql.*
 import java.util.Properties
 
 /**
- * Program to list databases in MySQL using Kotlin
+ * This is the mysql_add_history Object.
+ * This Object provides the operation to add something into history table.
  */
 object mysql_add_history : mysql_basic() {
 

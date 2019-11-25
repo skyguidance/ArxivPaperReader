@@ -1,54 +1,22 @@
+/**
+ * Create by Z. Li <zli51@gwu.edu>
+ * CSCI 6221 Course Project - Team 15 - Fall 2019. The George Washington University.
+ * Copyright 2019 - Present
+ */
 package com.example.cardviewdemo.api.mysql
 
 import java.sql.Connection
 import java.sql.SQLException
 import java.sql.DriverManager
 
+/**
+ * This is the MySQL Basic Class.
+ * This class provides basic MySQL related operations.
+ */
  abstract class mysql_basic{
-
-    fun checkRow_User(
-        connection: Connection?=getUserName.conn,
-        schema: String,
-        table: String,
-        UID: String
-    ): String {
-        if (connection==null){
-            getConnection()
-        }
-        val sql=
-            "SELECT username from $schema.$table where uid = '$UID'"
-        var rs=connection!!.createStatement().executeQuery(sql)
-        var getusername=""
-        if (rs.next()) {
-            getusername=rs.getString("username")
-            return getusername
-        } else {
-            println("Error!Trapped at checkRow_User!")
-            return ""
-        }
-
-    }
-
-    fun doGetUserName(thisUID: String): String {
-        println("DEBUG:doGetUserName:" + thisUID)
-        getUserName.getConnection()
-        try {
-            return getUserName.checkRow_User(
-                getUserName.conn,
-                "apr_users",
-                "user",
-                thisUID
-            )
-        } catch (sqlEx: SQLException) {
-            print(sqlEx)
-            return "ERROR!"
-        }
-    }
 
     /**
      * This method makes a connection to MySQL Server
-     * In this example, MySQL Server is running in the local host (so 127.0.0.1)
-     * at the standard port 3306
      */
      fun getConnection(): Connection? {
         try {
@@ -69,6 +37,9 @@ import java.sql.DriverManager
         return getUserName.conn
     }
 
+    /**
+     * This method inserts one row to the favorite table.
+     */
      fun insertRow_favorite(connection: Connection?, schema : String, table : String, arxivID: String) {
         val sql = "INSERT INTO $schema.$table (arxivID, createTime) VALUES ('$arxivID', NOW())"
         with(connection!!) {
@@ -77,6 +48,9 @@ import java.sql.DriverManager
         }
     }
 
+    /**
+     * This method inserts one row to the userfavoriterelation table.
+     */
      fun insertRow_userfavoriterelations(connection: Connection?, schema : String = "apr_users", table : String = "userfavoriterelations", UID : Int = 1, Fid : Int) {
         val sql = "INSERT INTO $schema.$table (UID, Fid) VALUES ('$UID', '$Fid')"
         connection!!.autoCommit = false
@@ -91,6 +65,9 @@ import java.sql.DriverManager
         }
     }
 
+    /**
+     * This method queries the favorite table.
+     */
      fun queryRows_favorite(connection: Connection?, schema : String = "apr_users", table : String, arxivID: String) : Int{
         var Fid : Int = 0
         val sql = "SELECT Fid FROM $schema.$table where arxivID = '$arxivID'"
@@ -103,6 +80,9 @@ import java.sql.DriverManager
         return Fid
     }
 
+    /**
+     * This method inserts one row to the hisotry table.
+     */
     fun insertRow_history(
         connection: Connection? = mysql_add_history.conn,
         schema: String,
@@ -117,6 +97,9 @@ import java.sql.DriverManager
         }
     }
 
+    /**
+     * This method queries the userfavoriterelations table.
+     */
     fun queryRows_userfavoriterelations(
         connection: Connection?,
         schema: String = "apr_users",
@@ -136,6 +119,9 @@ import java.sql.DriverManager
         return list_Fid
     }
 
+    /**
+     * This method queries the favorite table. Different return value with queryRows_favorite.
+     */
     fun queryRows_favorite2(
         connection: Connection?,
         schema: String = "apr_users",
@@ -151,6 +137,9 @@ import java.sql.DriverManager
         return arxivID
     }
 
+    /**
+     * This method queries the user history table.
+     */
     fun queryRows_userhistory(
         connection: Connection?=mysql_search_history.conn,
         schema: String="apr_users",

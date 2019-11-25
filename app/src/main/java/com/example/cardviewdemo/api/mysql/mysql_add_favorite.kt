@@ -4,6 +4,10 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
 
+/**
+ * This is the mysql_add_favorite Object.
+ * This Object provides the operation to add something into favorite table.
+ */
  object mysql_add_favorite : mysql_basic(){
 
     internal var conn: Connection? = null

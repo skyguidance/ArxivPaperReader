@@ -2,8 +2,10 @@ package com.example.cardviewdemo.api.mysql
 
 import java.sql.*
 import java.util.Properties
+
 /**
- * Program to list databases in MySQL using Kotlin
+ * This is the mysql_add_usr Object.
+ * This Object provides the operation to add usr into favorite table.
  */
 object mysql_add_usr : mysql_basic() {
     fun mysql_add_usr( user : String, password : String): Int? {

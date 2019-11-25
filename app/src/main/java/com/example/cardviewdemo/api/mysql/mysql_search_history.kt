@@ -5,7 +5,8 @@ import java.sql.*
 import java.util.Properties
 
 /**
- * Program to list databases in MySQL using Kotlin
+ * This is the mysql_get_favorite Object.
+ * This Object provides the operation to get articles of one user's history, supported by function provided by Rome2 .
  */
 object mysql_search_history : mysql_basic() {
     internal var conn: Connection?=null

@@ -1,9 +1,18 @@
+/**
+ * Create by Z. Li <zli51@gwu.edu>
+ * CSCI 6221 Course Project - Team 15 - Fall 2019. The George Washington University.
+ * Copyright 2019 - Present
+ */
 package com.example.cardviewdemo.api.search
 import com.rometools.rome.feed.synd.SyndFeed
 import com.rometools.rome.io.SyndFeedInput
 import com.rometools.rome.io.XmlReader
 import java.net.URL
 
+/**
+ * This is the Rome Class
+ * This class use the API provided by arXiv and process the result returned from arXiv API.
+ */
 open class Rome {
 
     fun Rome(start : Int, keywords : String, cat : String): MutableList<List<MutableList<String>>> {

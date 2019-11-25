@@ -3,6 +3,10 @@ package com.example.cardviewdemo.api.mysql
 import com.example.androidtry.Rome2
 import java.sql.*
 
+/**
+ * This is the mysql_get_favorite Object.
+ * This Object provides the operation to get articles of one user's favorite, supported by function provided by Rome2 .
+ */
 object mysql_get_favorite : mysql_basic() {
 
     internal var conn: Connection? = null
