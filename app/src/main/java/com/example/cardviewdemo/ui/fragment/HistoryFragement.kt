@@ -15,8 +15,14 @@ import com.example.cardviewdemo.ui.activity.PaperDetailActivity
 import com.example.cardviewdemo.view.HistoryView
 import kotlinx.android.synthetic.main.fragment_history.*
 import org.jetbrains.anko.support.v4.startActivity
-
+/**
+ * This is the History fragment.
+ * The history lists is presented in this fragment.
+ */
 class HistoryFragement : BaseFragment(),HistoryView {
+    /**
+     * Create a History fragment.
+     */
     fun newInstance(): HistoryFragement {
         return HistoryFragement()
     }

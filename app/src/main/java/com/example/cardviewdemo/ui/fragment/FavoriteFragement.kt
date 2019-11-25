@@ -21,6 +21,9 @@ import org.jetbrains.anko.support.v4.startActivity
  * Users' favorite lists is presented in this fragment.
  */
 class FavoriteFragement : BaseFragment(),FavoriteView {
+    /**
+     * Create a Favorite fragment.
+     */
     fun newInstance(): FavoriteFragement {
         return FavoriteFragement()
     }
@@ -49,12 +52,14 @@ class FavoriteFragement : BaseFragment(),FavoriteView {
         rv_favorite_list.layoutManager = LinearLayoutManager(context)
         rv_favorite_list.adapter = adapter
         rl_favorite_list.setColorSchemeColors(Color.RED)
-        rl_favorite_list.setOnRefreshListener {
+        rl_favorOnScrollListenerite_list.setOnRefreshListener {
             //Listen on refresh
             presenter.loadDatas(UID.toInt())
         }
         // listen to the swap
         rv_favorite_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(rv_favorite_list: RecyclerView, dx: Int, dy: Int) {
+            }
             override fun onScrollStateChanged(rv_favorite_list: RecyclerView, newState: Int) {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     val layoutManager = rv_favorite_list.layoutManager
