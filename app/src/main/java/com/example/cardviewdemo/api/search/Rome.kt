@@ -1,5 +1,5 @@
 /**
- * Create by Z. Li <zli51@gwu.edu>
+ * Create by Li, Ziyue <zli19@outlook.com>
  * CSCI 6221 Course Project - Team 15 - Fall 2019. The George Washington University.
  * Copyright 2019 - Present
  */
