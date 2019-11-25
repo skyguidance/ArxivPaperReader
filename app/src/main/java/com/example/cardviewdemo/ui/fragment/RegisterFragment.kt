@@ -10,9 +10,14 @@ import com.example.cardviewdemo.R
 import com.example.cardviewdemo.api.mysql.UserRegister
 import com.example.cardviewdemo.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_register.view.*
-
+/**
+ * This is the Register fragment.
+ * The register page is presented in this fragment.
+ */
 class RegisterFragment : BaseFragment(){
-
+    /**
+     * Create Register Fragment.
+     */
     fun newInstance(): RegisterFragment {
         return RegisterFragment()
     }

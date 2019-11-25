@@ -51,9 +51,6 @@ class HistoryFragement : BaseFragment(),HistoryView {
         }
         // listen to the swap
         rv_history_list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(rv_history_list: RecyclerView, dx: Int, dy: Int) {
-
-            }
 
             override fun onScrollStateChanged(rv_history_list: RecyclerView, newState: Int) {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {

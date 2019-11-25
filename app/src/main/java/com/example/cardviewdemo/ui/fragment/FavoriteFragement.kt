@@ -20,7 +20,7 @@ import org.jetbrains.anko.support.v4.startActivity
  * This is the Favorite fragment.
  * Users' favorite lists is presented in this fragment.
  */
-class onScrolledFavoriteFragement : BaseFragment(),FavoriteView {
+class FavoriteFragement : BaseFragment(),FavoriteView {
     fun newInstance(): FavoriteFragement {
         return FavoriteFragement()
     }
