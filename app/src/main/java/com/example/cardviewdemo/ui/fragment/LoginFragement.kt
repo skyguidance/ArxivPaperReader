@@ -16,7 +16,10 @@ import kotlinx.android.synthetic.main.fragment_login.view.*
 import org.jetbrains.anko.support.v4.runOnUiThread
 import org.json.JSONException
 import java.io.IOException
-
+/**
+ * This is the Login fragment.
+ * Login's page is presented in this fragment.
+ */
 class LoginFragment : BaseFragment() {
 
     fun newInstance(): LoginFragment {

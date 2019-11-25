@@ -11,7 +11,10 @@ import android.view.View
 import com.example.cardviewdemo.R
 import com.example.cardviewdemo.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_account.view.*
-
+/**
+ * This is the Account fragment.
+ * Users' account lists is presented in this fragment.
+ */
 class AccountFragment : BaseFragment(){
     fun newInstance(): AccountFragment {
         return AccountFragment()

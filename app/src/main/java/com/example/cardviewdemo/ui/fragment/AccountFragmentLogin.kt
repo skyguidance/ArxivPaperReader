@@ -18,7 +18,10 @@ import kotlinx.android.synthetic.main.fragment_account.view.tv_userid
 import kotlinx.android.synthetic.main.fragment_account_login.*
 import kotlinx.android.synthetic.main.fragment_account_login.view.*
 import org.jetbrains.anko.support.v4.runOnUiThread
-
+/**
+ * This is the Account login fragment.
+ * Accounts' login page is presented in this fragment.
+ */
 class AccountFragmentLogin : BaseFragment() {
     fun newInstance(): AccountFragmentLogin {
         return AccountFragmentLogin()
