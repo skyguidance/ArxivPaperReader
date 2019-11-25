@@ -3,66 +3,14 @@ package com.example.cardviewdemo.api.mysql
 import com.example.androidtry.Rome2
 import java.sql.*
 
-object mysql_get_favorite {
+object mysql_get_favorite : mysql_basic() {
 
     internal var conn: Connection? = null
-    fun getConnection() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance()
-            conn = DriverManager.getConnection(
-                "jdbc:" + "mysql" + "://" +
-                        "140.82.60.66" +
-                        ":" + "3306" + "/"
-                , "root", "4j{NjN(]dpwwuY9X"
-            )
-        } catch (ex: SQLException) {
-            // handle any errors
-            ex.printStackTrace()
-        } catch (ex: Exception) {
-            // handle any errors
-            ex.printStackTrace()
-        }
-    }
-
-    fun queryRows_userfavoriterelations(
-        connection: Connection? = conn,
-        schema: String = "apr_users",
-        table: String = "userfavoriterelations",
-        UID: Int
-    ): MutableList<Int> {
-        var Fid: Int
-        var list_Fid = mutableListOf<Int>()
-        val sql = "SELECT Fid FROM $schema.$table where UID = $UID"
-        val rs = connection!!.createStatement().executeQuery(sql)
-        while (rs.next()) {
-            Fid = rs.getInt("Fid")
-            println(Fid)
-            //println("Fid: ${rs.getInt("Fid")}\t")
-            list_Fid.add(Fid)
-        }
-        return list_Fid
-    }
-
-    fun queryRows_favorite(
-        connection: Connection? = conn,
-        schema: String = "apr_users",
-        table: String = "favorite",
-        Fid: Int
-    ): String {
-        var arxivID: String = ""
-        val sql = "SELECT arxivID FROM $schema.$table where Fid = $Fid"
-        val rs = connection!!.createStatement().executeQuery(sql)
-        while (rs.next()) {
-            arxivID = rs.getString("arxivID")
-        }
-        return arxivID
-    }
 
     fun mysql_get_favorite(UID: Int):MutableList<List<MutableList<String>>>{
         val articles = mutableListOf<List<MutableList<String>>>()
-        getConnection()
-        queryRows_userfavoriterelations(UID = UID).forEach{
-            articles.add(Rome2().Rome2(queryRows_favorite(Fid = it)))
+        queryRows_userfavoriterelations(getConnection()!!, UID = UID).forEach{
+            articles.add(Rome2().Rome2(queryRows_favorite2(getConnection()!!, Fid = it)))
         }
         return articles
     }
