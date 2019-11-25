@@ -52,7 +52,7 @@ class FavoriteFragement : BaseFragment(),FavoriteView {
         rv_favorite_list.layoutManager = LinearLayoutManager(context)
         rv_favorite_list.adapter = adapter
         rl_favorite_list.setColorSchemeColors(Color.RED)
-        rl_favorOnScrollListenerite_list.setOnRefreshListener {
+        rl_favorite_list.setOnRefreshListener {
             //Listen on refresh
             presenter.loadDatas(UID.toInt())
         }
