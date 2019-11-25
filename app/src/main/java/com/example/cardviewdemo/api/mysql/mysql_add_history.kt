@@ -9,10 +9,7 @@ import java.util.Properties
 object mysql_add_history {
 
     internal var conn: Connection? = null
-    //    internal var username = "username" // provide the username
-//    internal var password = "password" // provide the corresponding password
     internal var username = "root" // provide the username
-    //internal var password = "4j{NjN(]dpwwuY9X" // provide the corresponding password
     internal var password = "soE{Hq96" // provide the corresponding password
 
 
