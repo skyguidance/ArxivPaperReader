@@ -122,11 +122,4 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryHolder>() {
     fun setMyListener(listener: (paperBean: PaperBean) -> Unit) {
         this.listener=listener
     }
-
-    /**
-     * The holder for Favourite Browser.
-     */
-    class HistoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-    }
 }

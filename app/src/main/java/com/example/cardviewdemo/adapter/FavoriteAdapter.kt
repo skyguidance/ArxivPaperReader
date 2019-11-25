@@ -123,10 +123,4 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>() {
         this.listener=listener
     }
 
-    /**
-     * The holder for Favourite Browser.
-     */
-    class FavoriteHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-    }
 }

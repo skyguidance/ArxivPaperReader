@@ -7,8 +7,9 @@ import com.example.cardviewdemo.util.ToolBarManager
 import org.jetbrains.anko.find
 
 
-/*
-Setting Fragment
+/**
+ * This is the Setting Activity.
+ * This Activity displays the function of seetings button in toorbar
  */
 class SettingActivity: BaseActivity(),ToolBarManager {
     override val toolbar by lazy { find<Toolbar>(R.id.toolbar) }
