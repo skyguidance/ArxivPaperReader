@@ -25,7 +25,7 @@ import java.sql.DriverManager
                 "jdbc:" + "mysql" + "://" +
                         "140.82.60.66" +
                         ":" + "3306" + "/"
-                , "root", "4j{NjN(]dpwwuY9X"
+                , "user", "sLbc=TiNV6"
             )
         } catch (ex: SQLException) {
             // handle any errors
