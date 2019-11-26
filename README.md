@@ -14,3 +14,6 @@ This is the class project for CSCI 6221 (Advanced Software Paradigms), Group 15,
  `./gradlew assembleDebug`
  4. Install your APK file your Android Device, and have fun!
 
+## Download latest stable APK
+Please visit this project's release page for more details.<br>
+https://github.com/skyguidance/ArxivPaperReader/releases
