@@ -16,3 +16,8 @@ This is the class project for CSCI 6221 (Advanced Software Paradigms), Group 15,
 ## Download latest stable APK
 Please visit this project's [release page](https://github.com/skyguidance/ArxivPaperReader/releases) for more details.<br>
 
+## Contributors
+@zli19
+@ChrysalisL
+@nike0good
+@skyguidance
