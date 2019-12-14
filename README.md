@@ -17,7 +17,7 @@ This is the class project for CSCI 6221 (Advanced Software Paradigms), Group 15,
 Please visit this project's [release page](https://github.com/skyguidance/ArxivPaperReader/releases) for more details.<br>
 
 ## Collaborators
-[@zli19](https://github.com/zli19)  
 [@ChrysalisL](https://github.com/ChrysalisL)  
+[@zli19](https://github.com/zli19)  
 [@nike0good](https://github.com/nike0good)  
 [@skyguidance](https://github.com/skyguidance)  
